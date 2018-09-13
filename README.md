@@ -1,2 +1,3 @@
 # 7350GroupWork
-我目前在master上上传的是用nodejs搭建的前端开发环境，因为还有一部分代码没有传，所以暂时没办法运行起来。
+1.目前nodejs搭建的前端开发环境已经完成
+2.一定注意在下载npm依赖包的时候webpack-server-dev需要单独下载，可能是node的坑哇
