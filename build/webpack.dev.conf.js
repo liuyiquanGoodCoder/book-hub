@@ -13,6 +13,15 @@ const portfinder = require('portfinder')
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+/* increase express */
+const express = require('express')
+const app = express()
+var appData = require('../menu.json')//download local data
+var menu = appData.menu
+var apiRoutes = express.Router()
+app.use('/api', apiRoutes)
+/* increase express end */
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
@@ -42,7 +51,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
-    }
+    },
+    /* increase URL principle */
+    before(app) {
+      app.get('/api/menu', (req, res) => {
+        res.json({
+          code: 0,
+          data: menu
+        })
+      })
+    } 
+    /* increase URL principle end */
+
   },
   plugins: [
     new webpack.DefinePlugin({
