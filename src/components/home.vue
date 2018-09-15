@@ -6,7 +6,7 @@
 					<div class="topMessage">
 						<div class="menu-hd">
 							<a href="#" target="_top" class="h">亲，请登录</a>
-							<a href="#" target="_top">免费注册</a>
+							<router-link to="/register">免费注册</router-link>
 						</div>
 					</div>
 				</ul>
