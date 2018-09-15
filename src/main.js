@@ -16,11 +16,5 @@ new Vue(
   components: { App },
   template: '<App/>'
 },
-{
-  el: '#banner',
-  router,
-  components: { App },
-  template: '<App/>'
-}
 )
 
