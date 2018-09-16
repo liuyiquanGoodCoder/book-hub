@@ -15,7 +15,9 @@
 													<div class="menu-srot">
 														<div class="sort-side">
 															<dl class="dl-sort">
-																<dt><span title="蛋糕">蛋糕</span></dt>
+																<dt>
+																	<router-link to="/product"><span title="蛋糕">蛋糕</span></router-link>	
+																</dt>
 																<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
 																<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
 																<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
