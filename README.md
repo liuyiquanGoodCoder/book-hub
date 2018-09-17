@@ -4,5 +4,5 @@
 1.安装git https://git-scm.com/<br/>
 2.git clone https://github.com/liuyiquanGoodCoder/7350GroupWork.git<br/>
 3.安装nodeJs v8.12.0  https://nodejs.org/en/<br/>
-4.在7350GroupWork根目录（package.json的目录下），执行npm install命令<br/>
+4.在front-end根目录（package.json的目录下），执行npm install命令<br/>
 5.执行npm run dev命令<br/>
