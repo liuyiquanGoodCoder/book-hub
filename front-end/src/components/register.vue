@@ -97,6 +97,11 @@
 			}
 		}
 	</script>
+	<script type="text/javascript">
+		$(function() {
+		$('#doc-my-tabs').tabs();
+		})
+	</script>
 	<style>
 	@import url("../AmazeUI-2.4.2/assets/css/amazeui.min.css");
 	@import url("../css/dlstyle.css");

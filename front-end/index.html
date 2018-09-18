@@ -6,30 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<script src="./static/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./static/js/amazeui.min.js" type="text/javascript" charset="utf-8"></script>
-	
 	<title>myproject</title>
 </head>
 
 <body>
 	<div id="app"></div>
 </body>
-<!--导航 -->
-<script type="text/javascript">
-	(function() {
-		$('.am-slider').flexslider();
-	});
-	$(document).ready(function() {
-		$("li").hover(function() {
-			$(".category-content .category-list li.first .menu-in").css("display", "none");
-			$(".category-content .category-list li.first").removeClass("hover");
-			$(this).addClass("hover");
-			$(this).children("div.menu-in").css("display", "block")
-		}, function() {
-			$(this).removeClass("hover")
-			$(this).children("div.menu-in").css("display", "none")
-		});
-	})
-</script>
 <script type="text/javascript">
 	if ($(window).width() < 640) {
 		function autoScroll(obj) {
@@ -46,29 +28,6 @@
 		})
 	}
 </script>
-<!--导航 -->
-<script type="text/javascript">
-	(function() {
-		$('.am-slider').flexslider();
-	});
-	$(document).ready(function() {
-		$("li").hover(function() {
-			$(".category-content .category-list li.first .menu-in").css("display", "none");
-			$(".category-content .category-list li.first").removeClass("hover");
-			$(this).addClass("hover");
-			$(this).children("div.menu-in").css("display", "block")
-		}, function() {
-			$(this).removeClass("hover")
-			$(this).children("div.menu-in").css("display", "none")
-		});
-	})
-</script>
-<script>
-	window.jQuery || document.write('<script src="basic/js/jquery.min.js "><\/script>');
-</script>
-<script>
-	$(function() {
-		$('#doc-my-tabs').tabs();
-	})
-</script>
+
+
 </html>

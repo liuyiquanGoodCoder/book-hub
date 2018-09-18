@@ -57,10 +57,8 @@
     Menu,
     Header
   }
-}
+ } 
 </script>
-
-
 <style>
 	@import url("../AmazeUI-2.4.2/assets/css/amazeui.css");
 	@import url("../AmazeUI-2.4.2/assets/css/admin.css");
