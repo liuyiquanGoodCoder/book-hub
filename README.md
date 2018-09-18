@@ -1,9 +1,3 @@
-# 7350GroupWork
-目前nodejs搭建的前端开发环境已经完成<br/>
-运行步骤如下<br/>
-1.安装git https://git-scm.com/<br/>
-2.git clone https://github.com/liuyiquanGoodCoder/7350GroupWork.git<br/>
-3.安装nodeJs v8.12.0  https://nodejs.org/en/<br/>
-4.在git中输入cd 7350GroupWork/front-end/进入front-end目录<br/>
-5.在front-end根目录（package.json的目录下），执行npm install命令<br/>
-6.执行npm run dev命令<br/>
+一些相关的参考资料<br/>
+1.可行性研究报告 https://wenku.baidu.com/view/56f02e60e418964bcf84b9d528ea81c758f52e6e.html<br/>
+2.关于购物网站的流程图之类的资料 https://wenku.baidu.com/view/0ac8714c30b765ce0508763231126edb6e1a765f.html <br/>
