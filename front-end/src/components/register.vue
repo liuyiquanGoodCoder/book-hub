@@ -67,8 +67,8 @@
 											<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
 										</label>
 									</div>
-									<div class="am-cf">
-										<input type="submit" name="" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
+									<div id="#example-2" class="am-cf">
+										<input  type="submit" id="submit" value="注册" class="am-btn am-btn-primary am-btn-sm am-fl">
 									</div>
 								</div>
 
@@ -80,10 +80,12 @@
 				</div>
 			</div>
 			<Footer></Footer>
+			
 		</div>	
 	</template>
-	<script>
+	<script type="text/javascript">
 		import Footer from "../components/footer"
+		import {post} from "../js/httpUtils"
 		export default{
 			data(){
 				return {
@@ -96,13 +98,21 @@
 				Footer
 			}
 		}
-	</script>
-	<script type="text/javascript">
 		$(function() {
-		$('#doc-my-tabs').tabs();
-		})
-	</script>
-	<style>
-	@import url("../AmazeUI-2.4.2/assets/css/amazeui.min.css");
-	@import url("../css/dlstyle.css");
+			$('#doc-my-tabs').tabs();
+			const url = "/api/login";
+			const data = {
+				"email":"doudou02@gmail.com",
+				"password":"123456789"
+			};
+			$("#submit").click(function(){
+				post(url, data);
+			})
+
+		})		
+</script>
+
+<style>
+@import url("../AmazeUI-2.4.2/assets/css/amazeui.min.css");
+@import url("../css/dlstyle.css");
 </style>

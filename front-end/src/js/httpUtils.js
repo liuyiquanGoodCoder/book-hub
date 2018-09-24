@@ -7,22 +7,22 @@
  */
 
 function post(url, data, success, error){
-	$.ajax({
-		type:'post',
-		url:url,
-		data:data,
-		dataType:"appliction/json, charset=UTF-8",
-		success:function(){
-			if(result.code  !== '001') {
+  $.ajax({
+    type:'post',
+    url:url,
+    data:JSON.stringify(data),
+    dataType:"appliction/json, charset=UTF-8",
+    success:function(){
+      if(result.code  !== '001') {
                      error(result);
              }else{
                  success(result.data)
              }
-		},
-		error : function erryFunction() {
-				error("");	
-         }
-	});
+    },
+    error : function erryFunction() {
+        error("");  
+    }
+  });
 };
 
 /**

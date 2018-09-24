@@ -13,7 +13,7 @@
 							<div class="clear"></div>
 						
 						<div class="login-form">
-						  <form>
+				<form>
 							   <div class="user-name">
 								    <label for="user"><i class="am-icon-user"></i></label>
 								    <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
@@ -28,7 +28,7 @@
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
 								<a href="#" class="am-fr">忘记密码</a>
-								<router-link to="/register" class="zcnext am-fr am-btn-default">免费注册</router-link>
+								<router-link to="/register" class="zcnext am-fr am-btn-default">注册</router-link>
 								<br />
             </div>
 								<div class="am-cf">
@@ -46,13 +46,19 @@
 				</div>
 			</div>
 		</div>
-
+			<form action="form_action.asp" method="get">
+  <p>First name: <input type="text" name="fname" /></p>
+  <p>Last name: <input type="text" name="lname" /></p>
+  <input type="submit" value="Submit" />
+</form>
 			<Footer></Footer>
 	</div>	
 	</template>
 	<script>
 		import Footer from "../components/footer"
+		import {post} from "../js/httpUtils"
 		export default{
+			name:"footer",
 			data(){
 				return {
 
@@ -63,6 +69,10 @@
 			components: {
 				Footer
 			}
+		},
+		export {
+			name:"login",
+
 		}
 	</script>
 	<script type="text/javascript">
