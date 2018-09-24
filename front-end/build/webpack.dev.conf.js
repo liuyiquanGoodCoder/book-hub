@@ -47,7 +47,17 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       ? { warnings: false, errors: true }
       : false,
     publicPath: config.dev.assetsPublicPath,
-    proxy: config.dev.proxyTable,
+    //proxy: config.dev.proxyTable,
+     proxy:{
+            // 当你请求是以/api开头的时候，则我帮你代理访问到http://localhost:3000
+            // 例如：
+            // /api/users  http://localhost:3000/api/users
+            // 我们真是服务器接口是没有/api的 
+            "/api":{
+                target:"http://jwt.test/api",
+                pathRewrite:{"^/api":""}
+            }
+    },
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll,
