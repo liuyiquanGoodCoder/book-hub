@@ -4,7 +4,7 @@
 				<ul class="message-l">
 					<div class="topMessage">
 						<div class="menu-hd">
-							<a href="#" target="_top" class="h">亲，请登录</a>
+							<router-link to="/login">亲，请登录</router-link>
 							<router-link to="/register">免费注册</router-link>
 						</div>
 					</div>
