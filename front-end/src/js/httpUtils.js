@@ -6,21 +6,17 @@
  * @param {*} error   
  */
 
-function post(url, data, success, error){
+function post(url, data){
   $.ajax({
     type:'post',
     url:url,
-    data:JSON.stringify(data),
-    dataType:"appliction/json, charset=UTF-8",
-    success:function(){
-      if(result.code  !== '001') {
-                     error(result);
-             }else{
-                 success(result.data)
-             }
+    data:data,
+    dataType:"json",
+    success:function(data){
+      console.log(data)
     },
-    error : function erryFunction() {
-        error("");  
+    error : function (data) {
+        console.log(data)
     }
   });
 };

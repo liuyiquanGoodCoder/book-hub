@@ -99,16 +99,7 @@
 			}
 		}
 		$(function() {
-			$('#doc-my-tabs').tabs();
-			const url = "/api/login";
-			const data = {
-				"email":"doudou02@gmail.com",
-				"password":"123456789"
-			};
-			$("#submit").click(function(){
-				post(url, data);
-			})
-
+			
 		})		
 </script>
 
