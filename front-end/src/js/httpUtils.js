@@ -6,17 +6,24 @@
  * @param {*} error   
  */
 
-function post(url, data){
+function post(url, data,success,error){
   $.ajax({
     type:'post',
     url:url,
     data:data,
     dataType:"json",
     success:function(data){
-      console.log(data)
+        if(data.success == true){
+          success();
+          sessionStorage.setItem('key', data.token);
+          window.location.href='http://www.baidu.com'
+        }else if(data.success == false){
+          error();
+        }
+      
     },
-    error : function (data) {
-        console.log(data)
+    error:function (data) {
+      console.log("网络错误")
     }
   });
 };

@@ -7,13 +7,15 @@
 			<div class="login-main">
 				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
 				<div class="login-box">
-
-					<h3 class="title">登录商城</h3>
+					<template id="app-3">
+						<h3 class="title" v-if="seen">登录商城</h3>
+					</template>
+					
 
 					<div class="clear"></div>
 
 					<div class="login-form">
-						<form id="login_form">
+						<form id="login_form" method="post" onsubmit="return false;">
 							<div class="user-name">
 								<label for="user"><i class="am-icon-user"></i></label>
 								<input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
@@ -52,6 +54,7 @@
 <script>
 	import Footer from "../components/footer"
 	import {post} from "../js/httpUtils"
+	import Vue from 'vue'
 	export default{
 		data(){
 			return {
@@ -64,14 +67,27 @@
 			Footer
 		}
 	}
+	var app3 = new Vue({
+	  el: '#app-3',
+	  data: {
+	    seen: true
+	  }
+	})
 	$(function() {
+		var error = function (){
+		    	console.log("aaa");
+	    }
+	    var success = function () {
+	    	
+	    }	
 		$('#submit').click(function(){
 			const url = "http://jwt.test/api/login";
 			const data = {
 				"email":$('#user').val(),
 				"password":$('#password').val()
-			};
-			post(url,data);
+			};	
+			
+			post(url,data,success,error);
 		})
 	})	
 
