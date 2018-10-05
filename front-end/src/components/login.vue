@@ -7,7 +7,7 @@
 			<div class="login-main">
 				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
 				<div class="login-box">
-					<div id="app-3">
+					<div>
 						<h3 class="title">{{message}}</h3>
 					</div>
 					
@@ -15,7 +15,7 @@
 					<div class="clear"></div>
 
 					<div class="login-form">
-						<form id="login_form" method="post" onsubmit="return false;">
+						<form  method="post" onsubmit="return false;">
 							<div class="user-name">
 								<label for="user"><i class="am-icon-user"></i></label>
 								<input type="text"  placeholder="邮箱/手机/用户名" v-model="userName">
@@ -28,7 +28,7 @@
 					</div>
 
 					<div class="login-links">
-						<label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
+						<label for="remember-me"><input  type="checkbox">记住密码</label>
 						<a href="#" class="am-fr">忘记密码</a>
 						<router-link to="/register" class="zcnext am-fr am-btn-default">注册</router-link>
 						<br />
