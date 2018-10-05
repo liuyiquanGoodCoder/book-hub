@@ -7,9 +7,9 @@
 			<div class="login-main">
 				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
 				<div class="login-box">
-					<template id="app-3">
-						<h3 class="title" v-if="seen">登录商城</h3>
-					</template>
+					<div id="app-3">
+						<h3 class="title">{{message}}</h3>
+					</div>
 					
 
 					<div class="clear"></div>
@@ -18,11 +18,11 @@
 						<form id="login_form" method="post" onsubmit="return false;">
 							<div class="user-name">
 								<label for="user"><i class="am-icon-user"></i></label>
-								<input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+								<input type="text"  placeholder="邮箱/手机/用户名" v-model="userName">
 							</div>
 							<div class="user-pass">
 								<label for="password"><i class="am-icon-lock"></i></label>
-								<input type="password" name="" id="password" placeholder="请输入密码">
+								<input type="password" placeholder="请输入密码" v-model="password">
 							</div>
 						</form>
 					</div>
@@ -34,7 +34,7 @@
 						<br />
 					</div>
 					<div class="am-cf">
-						<input  id="submit" type="submit"  value="登 录" class="am-btn am-btn-primary am-btn-sm">
+						<button class="am-btn am-btn-primary am-btn-sm" v-on:click="login">登陆</button>  
 					</div>
 					<div class="partner">		
 						<h3>合作账号</h3>
@@ -54,42 +54,37 @@
 <script>
 	import Footer from "../components/footer"
 	import {post} from "../js/httpUtils"
-	import Vue from 'vue'
+	import Vue from "vue"
 	export default{
 		data(){
 			return {
-
-				item:[]
-
+				message:"登陆商城",
+				userName:"",
+				password:"",
+				
 			}
 		},
 		components: {
 			Footer
+		},
+		methods: {
+			login(){
+				const error = function (){
+		    		console.log("aaa");
+			    }
+			    const success = function () {
+			    	
+			    }	
+				const url = "http://jwt.test/api/login";
+				const data = {
+					"email":this.userName,
+					"password":this.password
+				};	
+				debugger;
+				post(url,data,success,error);
+			}
 		}
 	}
-	var app3 = new Vue({
-	  el: '#app-3',
-	  data: {
-	    seen: true
-	  }
-	})
-	$(function() {
-		var error = function (){
-		    	console.log("aaa");
-	    }
-	    var success = function () {
-	    	
-	    }	
-		$('#submit').click(function(){
-			const url = "http://jwt.test/api/login";
-			const data = {
-				"email":$('#user').val(),
-				"password":$('#password').val()
-			};	
-			
-			post(url,data,success,error);
-		})
-	})	
 
 </script>
 <style>
