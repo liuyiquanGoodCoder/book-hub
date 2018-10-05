@@ -79,8 +79,7 @@
 				const data = {
 					"email":this.userName,
 					"password":this.password
-				};	
-				debugger;
+				};
 				post(url,data,success,error);
 			}
 		}
