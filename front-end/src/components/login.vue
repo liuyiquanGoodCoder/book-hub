@@ -69,11 +69,11 @@
 		},
 		methods: {
 			login(){
-				const error = function (){
-		    		console.log("aaa");
+				const error = function (data){
+		    		console.log(data);
 			    }
-			    const success = function () {
-			    	
+			    const success = function (data) {
+		    		console.log(data);			    	
 			    }	
 				const url = "http://jwt.test/api/login";
 				const data = {

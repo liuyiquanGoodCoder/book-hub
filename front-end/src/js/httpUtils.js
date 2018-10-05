@@ -14,11 +14,11 @@ function post(url, data,success,error){
     dataType:"json",
     success:function(data){
         if(data.success == true){
-          success();
+          success(data);
           sessionStorage.setItem('key', data.token);
           window.location.href='http://www.baidu.com'
         }else if(data.success == false){
-          error();
+          error(data);
         }
       
     },
