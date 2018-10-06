@@ -53,8 +53,6 @@
 </template>
 <script>
 	import Footer from "../components/footer"
-	import {post} from "../js/httpUtils"
-	import Vue from "vue"
 	export default{
 		data(){
 			return {
@@ -69,18 +67,18 @@
 		},
 		methods: {
 			login(){
-				const error = function (data){
-		    		console.log(data);
-			    }
-			    const success = function (data) {
-		    		console.log(data);			    	
-			    }	
+				const $this = this;
 				const url = "http://jwt.test/api/login";
-				const data = {
-					"email":this.userName,
-					"password":this.password
-				};
-				post(url,data,success,error);
+				axios.post(url, {
+				    email: $this.userName,
+				    password: $this.password
+				  })
+				  .then(function (response) {
+				    console.log(response);
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				});
 			}
 		}
 	}

@@ -85,7 +85,6 @@
 	</template>
 	<script type="text/javascript">
 		import Footer from "../components/footer"
-		import {post} from "../js/httpUtils"
 		export default{
 			data(){
 				return {
