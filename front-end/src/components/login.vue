@@ -8,7 +8,8 @@
 				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
 				<div class="login-box">
 					<div>
-						<h3 class="title">{{message}}</h3>
+						<h3 class="title" v-if="title">登陆商城</h3>
+						<span class="am-fr">{{error}}</span>
 					</div>
 					
 
@@ -28,9 +29,11 @@
 					</div>
 
 					<div class="login-links">
-						<label for="remember-me"><input  type="checkbox">记住密码</label>
-						<a href="#" class="am-fr">忘记密码</a>
-						<router-link to="/register" class="zcnext am-fr am-btn-default">注册</router-link>
+						<div class="am-btn-group">
+							<li><label for="remember-me"><input  type="checkbox">记住密码</label></li>
+							<li><a href="#" class="am-fr">忘记密码</a></li>
+							<li><router-link to="/register" class="am-fr">免费注册</router-link></li>
+						</div>
 						<br />
 					</div>
 					<div class="am-cf">
@@ -56,7 +59,8 @@
 	export default{
 		data(){
 			return {
-				message:"登陆商城",
+				title:true,
+				error:"",
 				userName:"",
 				password:"",
 				
@@ -75,6 +79,13 @@
 				  })
 				  .then(function (response) {
 				    console.log(response);
+				    if(response.data.success == false){
+				    	$this.title = false;
+				    	$this.error = "你输入的密码和账户名不匹配，是否忘记密码或忘记会员名";
+				    }else if(response.data.success == true){
+				    	//need improve
+				    	$this.$router.go(-1);
+				    }
 				  })
 				  .catch(function (error) {
 				    console.log(error);
