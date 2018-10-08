@@ -1,3 +1,7 @@
+<style>
+@import url("../AmazeUI-2.4.2/assets/css/amazeui.min.css");
+@import url("../css/dlstyle.css");
+</style>
 <template>
 	<div>
 		<div class="login-boxtitle">
@@ -95,7 +99,4 @@
 	}
 
 </script>
-<style>
-@import url("../AmazeUI-2.4.2/assets/css/amazeui.min.css");
-@import url("../css/dlstyle.css");
-</style>
+

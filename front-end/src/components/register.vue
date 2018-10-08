@@ -96,10 +96,7 @@
 			components: {
 				Footer
 			}
-		}
-		$(function() {
-			
-		})		
+		}		
 </script>
 
 <style>
