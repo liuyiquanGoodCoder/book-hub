@@ -27,7 +27,7 @@ class ApiController extends Controller
         return response()->json([
             'success' => true,
             'data' => $user
-        ], 200);
+        ]);
     }
 
     public function login(Request $request)
@@ -65,7 +65,7 @@ class ApiController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Sorry, the user cannot be logged out'
-            ], 500);
+            ]);
         }
     }
 

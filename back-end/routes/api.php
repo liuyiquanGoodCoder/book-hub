@@ -31,3 +31,16 @@ Route::group(['middleware' => 'auth.jwt'], function () {
     Route::put('products/{id}', 'ProductController@update');
     Route::delete('products/{id}', 'ProductController@destroy');
 });
+
+Route::middleware('auth.jwt', 'cors:api')->group (function() {
+	Route::post('home', 'BookController@home');
+	Route::post('findbook', 'BookController@findbook');
+	Route::post('bookdet', 'BookController@bookdet');
+	Route::post('addbook', 'BookController@addbook');
+	Route::post('userinfo', 'ApiController@userinfo');
+	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
+	Route::post('addaddress', 'BookController@address');
+	Route::post('showaddress', 'BookController@showaddress');
+	Route::post('addpayment', 'BookController@addpayment');
+	Route::post('showpayment', 'BookController@showpayment');
+});
