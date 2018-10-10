@@ -4,6 +4,7 @@ import Home from '@/components/home'
 import Register from '@/components/register'
 import Login from '@/components/login'
 import newLogin from '@/components/newlogin'
+import newRegister from '@/components/newregister'
 import Product from '@/components/product'
 Vue.use(Router)
 
@@ -33,6 +34,11 @@ export default new Router({
       path: '/newlogin',
       name: 'newLogin',
       component: newLogin
+    },
+    {
+      path: '/newregister',
+      name: 'newRegister',
+      component: newRegister
     }
   ]
 })

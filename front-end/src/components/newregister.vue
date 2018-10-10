@@ -10,11 +10,13 @@
 				input.user_email
 				div.underline
 				div.user_title 输入您的密码
+				div.user_title 确认您的密码
+				input.user_password(type="password")
 				input.user_password(type="password")
 				div.underline
 				div.user_confirm
-					router-link(to="/register",class="register") 创建账号
-					div.login 登陆
+					router-link(to="/register",class="register") 登陆现有账号
+					div.login 创建
 </template>
 <script>
 </script>
@@ -73,7 +75,9 @@
 			    margin-top: 40px;
 			    font-size: 14px;
 			    .user_title{
-			    	margin-top:20px;
+			    	display: inline-block;
+    				width: 50%;
+    				margin-top:20px;
 			    }
 			    .underline{
 			    	height: 1px;
@@ -81,7 +85,7 @@
 			    }
 			    input{
 			    	margin-top: 12px;
-			    	width: 100%;
+			    	width: 50%;
 			    	border:none;
    					outline:none;
    					font-size:17px;
