@@ -4,30 +4,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<script src="./static/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script src="./static/js/amazeui.min.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" type="text/css" href="static/css/static.css">
+	<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 	<title>myproject</title>
 </head>
 
 <body>
 	<div id="app"></div>
 </body>
-<script type="text/javascript">
-	if ($(window).width() < 640) {
-		function autoScroll(obj) {
-			$(obj).find("ul").animate({
-				marginTop: "-39px"
-			}, 500, function() {
-				$(this).css({
-					marginTop: "0px"
-				}).find("li:first").appendTo(this);
-			})
-		}
-		$(function() {
-			setInterval('autoScroll(".demo")', 3000);
-		})
-	}
-</script>
-
 
 </html>
