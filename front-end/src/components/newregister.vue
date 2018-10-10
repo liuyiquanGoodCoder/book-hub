@@ -85,10 +85,12 @@
 			    }
 			    input{
 			    	margin-top: 12px;
-			    	width: 50%;
 			    	border:none;
    					outline:none;
    					font-size:17px;
+			    }
+			    .user_password{
+			    	width:50%;
 			    }
 			    .user_confirm{
 			    	position: relative;
