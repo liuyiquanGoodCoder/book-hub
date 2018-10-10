@@ -8,7 +8,7 @@
 					li 建立
 				ul.gn-tools
 					li
-						router-link(to="/login")	登入
+						router-link(to="/newlogin")	登入
 					li
 						router-link(to="/register",class="register")	注册
 			
