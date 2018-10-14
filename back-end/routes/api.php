@@ -21,10 +21,7 @@ Route::post('login', 'ApiController@login')->middleware('cors:api');
 Route::post('register', 'ApiController@register')->middleware('cors:api');
  
 Route::group(['middleware' => 'auth.jwt'], function () {
-    Route::get('logout', 'ApiController@logout');
- 
-    Route::get('user', 'ApiController@getAuthUser');
- 
+    
     Route::get('products', 'ProductController@index');
     Route::get('products/{id}', 'ProductController@show');
     Route::post('products', 'ProductController@store');
@@ -33,6 +30,9 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 });
 
 Route::middleware('auth.jwt', 'cors:api')->group (function() {
+	Route::get('user', 'ApiController@getAuthUser');
+	Route::get('logout', 'ApiController@logout');
+ 
 	Route::post('addbook', 'BooksController@addbook');
 	Route::post('userinfo', 'ApiController@userinfo');
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');

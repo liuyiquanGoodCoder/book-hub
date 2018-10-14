@@ -28,4 +28,15 @@ class BooksController extends Controller
 
     	return $input;
     }
+
+    //book details
+    public function bookdet(Request $request)
+    {
+    	$this->validate($request, [
+	        'id' => 'required|integer',
+	    ]);
+    	$bid = $request->input('id');
+    	$res = Books::where('id', '=', $bid)->get()->toArray();
+    	return $res[0];
+    }
 }
