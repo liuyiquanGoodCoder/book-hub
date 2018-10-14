@@ -33,9 +33,6 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 });
 
 Route::middleware('auth.jwt', 'cors:api')->group (function() {
-	Route::post('home', 'BooksController@home');
-	Route::post('findbook', 'BooksController@findbook');
-	Route::post('bookdet', 'BooksController@bookdet');
 	Route::post('addbook', 'BooksController@addbook');
 	Route::post('userinfo', 'ApiController@userinfo');
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
@@ -43,4 +40,10 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::post('showaddress', 'BooksController@showaddress');
 	Route::post('addpayment', 'BooksController@addpayment');
 	Route::post('showpayment', 'BooksController@showpayment');
+});
+
+Route::middleware('cors:api')->group (function() {
+	Route::get('home', 'BooksController@home');
+	Route::get('findbook/{bname}', 'BooksController@findbook');
+	Route::post('bookdet', 'BooksController@bookdet');
 });
