@@ -33,14 +33,14 @@ Route::group(['middleware' => 'auth.jwt'], function () {
 });
 
 Route::middleware('auth.jwt', 'cors:api')->group (function() {
-	Route::post('home', 'BookController@home');
-	Route::post('findbook', 'BookController@findbook');
-	Route::post('bookdet', 'BookController@bookdet');
-	Route::post('addbook', 'BookController@addbook');
+	Route::post('home', 'BooksController@home');
+	Route::post('findbook', 'BooksController@findbook');
+	Route::post('bookdet', 'BooksController@bookdet');
+	Route::post('addbook', 'BooksController@addbook');
 	Route::post('userinfo', 'ApiController@userinfo');
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
-	Route::post('addaddress', 'BookController@address');
-	Route::post('showaddress', 'BookController@showaddress');
-	Route::post('addpayment', 'BookController@addpayment');
-	Route::post('showpayment', 'BookController@showpayment');
+	Route::post('addaddress', 'BooksController@address');
+	Route::post('showaddress', 'BooksController@showaddress');
+	Route::post('addpayment', 'BooksController@addpayment');
+	Route::post('showpayment', 'BooksController@showpayment');
 });
