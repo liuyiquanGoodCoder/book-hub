@@ -34,13 +34,13 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::get('logout', 'ApiController@logout');
  
 	Route::post('addtocarts', 'CartsController@addtocarts');
-	Route::post('showcarts', 'CartsController@showcarts');
+	Route::get('showcarts', 'CartsController@showcarts');
 
 	Route::post('userinfo', 'ApiController@userinfo');
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	Route::post('addaddress', 'BooksController@address');
 	Route::post('showaddress', 'BooksController@showaddress');
-	
+
 	Route::post('addpayment', 'BooksController@addpayment');
 	Route::post('showpayment', 'BooksController@showpayment');
 });

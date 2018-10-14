@@ -40,4 +40,12 @@ class CartsController extends Controller
 	            'message' => 0
 	        ]);
 	}
+
+	public function showcarts (Request $request)
+	{
+		$uid = $this->user->id;
+
+        return Carts::where('user_id', '=', $uid)->get()->toArray();
+
+	}
 }
