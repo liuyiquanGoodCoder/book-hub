@@ -45,7 +45,8 @@ class CartsController extends Controller
 	{
 		$uid = $this->user->id;
 
-        return Carts::where('user_id', '=', $uid)->get()->toArray();
+		return Carts::join('books', 'carts.bid', '=', 'books.id')
+			->where('carts.user_id', '=', $uid)->get()->toArray();
 
 	}
 }
