@@ -72,7 +72,7 @@ class ApiController extends Controller
 
     public function getAuthUser(Request $request)
     {
-        $this->validate($request, [
+        $this->validate($request,[
             'token' => 'required'
         ]);
 
