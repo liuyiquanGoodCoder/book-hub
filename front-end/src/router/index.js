@@ -6,6 +6,7 @@ import Login from '@/components/login'
 import newLogin from '@/components/newlogin'
 import newRegister from '@/components/newregister'
 import Product from '@/components/product'
+import Cart from '@/components/cart'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +30,11 @@ export default new Router({
       path: '/product',
       name: 'Product',
       component: Product
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
     },
     {
       path: '/newlogin',
