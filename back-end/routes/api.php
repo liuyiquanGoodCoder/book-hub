@@ -46,6 +46,11 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::get('show_storeinfo', 'StoreController@show_storeinfo');
 	Route::post('update_storeinfo', 'StoreController@update_storeinfo');
 
+	Route::post('create_projects', 'ProjectController@create_projects');
+	Route::get('show_projects', 'ProjectController@show_projects');
+	Route::post('update_projects', 'ProjectController@update_projects');
+	Route::post('delete_projects', 'ProjectController@delete_projects');
+
 	Route::post('userinfo', 'ApiController@userinfo');
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	
