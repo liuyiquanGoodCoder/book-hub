@@ -36,11 +36,24 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::post('addtocarts', 'CartsController@addtocarts');
 	Route::get('showcarts', 'CartsController@showcarts');
 
+	Route::get('showaddresses', 'AddressesController@showaddresses');
+	Route::post('addaddresses', 'AddressesController@addaddresses');
+	
+	Route::post('orderbooks', 'CartsController@orderbooks');
+	Route::get('showorders', 'CartsController@showorders');
+
+	Route::post('create_storeinfo', 'StoreController@create_storeinfo');
+	Route::get('show_storeinfo', 'StoreController@show_storeinfo');
+	Route::post('update_storeinfo', 'StoreController@update_storeinfo');
+
+	Route::post('create_projects', 'ProjectController@create_projects');
+	Route::get('show_projects', 'ProjectController@show_projects');
+	Route::post('update_projects', 'ProjectController@update_projects');
+	Route::post('delete_projects', 'ProjectController@delete_projects');
+
 	Route::post('userinfo', 'ApiController@userinfo');
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
-	Route::post('addaddress', 'BooksController@address');
-	Route::post('showaddress', 'BooksController@showaddress');
-
+	
 	Route::post('addpayment', 'BooksController@addpayment');
 	Route::post('showpayment', 'BooksController@showpayment');
 });

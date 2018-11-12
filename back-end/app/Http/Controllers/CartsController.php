@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Carts;
+use App\Orders;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Carbon\Carbon;
@@ -47,6 +48,47 @@ class CartsController extends Controller
 
 		return Carts::join('books', 'carts.bid', '=', 'books.id')
 			->where('carts.user_id', '=', $uid)->get()->toArray();
+
+	}
+
+	public function orderbooks(Request $request)
+	{
+		// $this->validate($request->all(), [
+	    //     'orders.*.bid' => 'required|integer',
+		// 	'orders.*.quantity' => 'required|integer',
+		// 	'orders.*.price' => 'required',
+		// 	'orders.*.address_id' => 'required|integer'
+		// ]);
+		
+		$items = $request->orders;
+
+		foreach ($items as $item) {
+			$orders = new Orders();
+			$orders->bid = $item["bid"];
+			$orders->quantity = $item["quantity"];
+			$orders->price = $item["price"];
+			$orders->address_id = $item["address_id"];
+			$this->user->orders()->save($orders);
+		}
+
+		return response()->json([
+	            'success' => true,
+	            'message' => 1
+	        ]);
+	    
+	}
+
+	public function showorders(Request $request)
+	{
+		$uid = $this->user->id;
+
+		return Orders::join('books', 'orders.bid', '=', 'books.id')
+			->where([
+				['orders.user_id', '=', $uid],
+				['orders.role', '=', $request->role],
+			])
+			->select('orders.*', 'books.bname', 'books.img-s')
+			->get()->toArray();
 
 	}
 }
