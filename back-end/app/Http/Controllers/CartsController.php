@@ -77,4 +77,18 @@ class CartsController extends Controller
 	        ]);
 	    
 	}
+
+	public function showorders(Request $request)
+	{
+		$uid = $this->user->id;
+
+		return Orders::join('books', 'orders.bid', '=', 'books.id')
+			->where([
+				['orders.user_id', '=', $uid],
+				['orders.role', '=', $request->role],
+			])
+			->select('orders.*', 'books.bname', 'books.img-s')
+			->get()->toArray();
+
+	}
 }
