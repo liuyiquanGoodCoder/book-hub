@@ -37,7 +37,8 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::get('showcarts', 'CartsController@showcarts');
 
 	Route::get('showaddresses', 'AddressesController@showaddresses');
-
+	Route::post('addaddresses', 'AddressesController@addaddresses');
+	
 	Route::post('orderbooks', 'CartsController@orderbooks');
 	Route::get('showorders', 'CartsController@showorders');
 
@@ -47,7 +48,6 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 
 	Route::post('userinfo', 'ApiController@userinfo');
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
-	Route::post('addaddress', 'BooksController@address');
 	
 	Route::post('addpayment', 'BooksController@addpayment');
 	Route::post('showpayment', 'BooksController@showpayment');
