@@ -1,10 +1,8 @@
-<template>
-  <div id="dialog">
-    <div class="border">
-      <div @click="closeDialog" class="closeImg"></div>
-      <span class="message">这是一段信息</span>
-    </div>
-  </div>
+<template lang="jade">
+  div#dialog
+    div.background
+      div.closeImg(@click="closeDialog") close
+      span.content 这是一段信息
 </template>
 <script>
   export default {
@@ -20,7 +18,7 @@
   }
 </script>
  
-<style scoped>
+<style lang="scss">
   #dialog{
     position: fixed;
     top: 0;
@@ -28,32 +26,32 @@
     background: rgba(0,0,0,0.3);
     width: 100%;
     height: 100%;
-  }
-  .message{
-    text-align: center;
-    position: absolute;
-    top: 50%;
-  }
-  .closeImg{
-    width: 20px;
-    height: 20px;
-    float: right;
-    margin-right: 5px;
-    margin-top: 5px;
-    cursor: pointer;
-    background-image: url();
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  .border{
-    text-align: center;
-    background-color: white;
-    border-radius: 20px;
-    width: 50%;
-    height: 50%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    .background{
+      text-align: center;
+      background-color: $White;
+      border-radius: 20px;
+      width: 50%;
+      height: 50%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+        .closeImg{
+        width: 20px;
+        height: 20px;
+        float: right;
+        margin-right: 5px;
+        margin-top: 5px;
+        cursor: pointer;
+        background-image: url();
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+      .content{
+        text-align: center;
+        position: absolute;
+        top: 50%;
+      }
+    }
   }
 </style>
