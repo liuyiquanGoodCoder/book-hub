@@ -23,6 +23,7 @@
 		text-align: left;
 		background:$Black;
 		.global-nav-container{
+			width: 1170px;
 			min-width: 800px;
 			max-width: 80%;
 			height:50px;
