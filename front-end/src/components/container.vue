@@ -101,7 +101,6 @@
 </script>
 <style lang="scss">
 	.container{
-		width: 1170px;
 		padding-right: 15px;
 	    padding-left: 15px;
 	    margin-right: auto;
@@ -214,7 +213,7 @@
 						    margin-bottom: 2px;
 						    width: 10px;
 						    height: 7px;
-						    background: url(/static/img/icons.938e284.png) -523px -112px no-repeat;
+						    background: url(../basic/images/icons.png) -523px -112px no-repeat;
 						    
 					    }
 					    .left{
