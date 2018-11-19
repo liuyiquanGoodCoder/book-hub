@@ -87,7 +87,7 @@ class CartsController extends Controller
 				['orders.user_id', '=', $uid],
 				['orders.role', '=', $request->role],
 			])
-			->select('orders.*', 'books.bname', 'books.img-s')
+			->select('orders.*', 'books.bname', 'books.img_s')
 			->get()->toArray();
 
 	}
