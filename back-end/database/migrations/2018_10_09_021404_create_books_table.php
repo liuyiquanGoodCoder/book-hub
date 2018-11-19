@@ -25,11 +25,11 @@ class CreateBooksTable extends Migration
             $table->string('ISBN');
             $table->string('bname');
             $table->string('author');
-            $table->integer('pub-year');
+            $table->integer('pub_year');
             $table->string('publisher');
-            $table->string('img-s');
-            $table->string('img-m');
-            $table->string('img-l');
+            $table->string('img_s');
+            $table->string('img_m');
+            $table->string('img_l');
             $table->integer('quantity');
             $table->string('price');
             $table->timestamps();

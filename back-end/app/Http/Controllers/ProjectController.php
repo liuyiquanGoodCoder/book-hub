@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Projectrecord;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Carbon\Carbon;
@@ -83,5 +84,69 @@ class ProjectController extends Controller
 	            'message' => 'projects could not be deleted'
 	        ]);
 	    }
-    }
+	}
+	public function addrecord(Request $request)
+	{
+		$records = new Projectrecord();
+		$records->from_seller_id = $request->from_seller_id;
+		$records->project_id = $request->project_id;
+		$records->details = $request->details;
+        $records->price = $request->price;
+
+		if ($this->user->projectrecords()->save($records))
+	        return response()->json([
+	            'success' => true,
+	            'message' => 1
+	        ]);
+	    else
+	        return response()->json([
+	            'success' => true,
+	            'message' => 0
+	        ]);
+	}
+	public function updaterecord(Request $request)
+	{
+		$records = $this->user->projectrecords()->find($request->id);
+
+	    $updated = $records->fill($request->all())->save();
+        
+	    if ($updated) {
+	        return response()->json([
+	            'success' => true
+	        ]);
+	    } else {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, store could not be updated'
+	        ]);
+	    }
+	}
+	public function showrecord(Request $request)
+	{
+		$uid = $this->user->id;
+
+		return Projectrecord::where('user_id', '=', $uid)->get()->toArray();
+	}
+	public function deleterecord(Request $request)
+	{
+		$records = $this->user->projectrecords()->find($request->id);
+
+	    if (!$records) {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, record with id ' . $request->id . ' cannot be found'
+	        ]);
+	    }
+
+	    if ($records->delete()) {
+	        return response()->json([
+	            'success' => true
+	        ]);
+	    } else {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'records could not be deleted'
+	        ]);
+	    }
+	}
 }
