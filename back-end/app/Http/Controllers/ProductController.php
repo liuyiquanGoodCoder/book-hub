@@ -168,4 +168,12 @@ class ProductController extends Controller
 	        ]);
 	    }
 	}
+	public function allbusiness()
+	{
+		return Orders::join('books', 'orders.bid', '=', 'books.id')
+			->join('storeinfos', 'storeinfos.user_id', '=', 'books.user_id')
+			->select('orders.*', 'books.bname', 'books.user_id as seller_id', 'storeinfos.sname')
+	        ->paginate(15)
+			->toArray();
+	}
 }
