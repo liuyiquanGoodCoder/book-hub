@@ -19,14 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('login', 'ApiController@login')->middleware('cors:api');
 Route::post('register', 'ApiController@register')->middleware('cors:api');
- 
-Route::group(['middleware' => 'auth.jwt'], function () {
-    
-    Route::get('products/{id}', 'ProductController@show');
-    Route::post('products', 'ProductController@store');
-    Route::put('products/{id}', 'ProductController@update');
-    Route::delete('products/{id}', 'ProductController@destroy');
-});
 
 Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::get('user', 'ApiController@getAuthUser');
@@ -52,7 +44,9 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 
 	Route::get('books', 'ProductController@index');
     Route::get('books/{bname}', 'ProductController@show');
-    
+    Route::post('addbooks', 'ProductController@store');
+    Route::post('updatebooks', 'ProductController@update');
+    Route::post('deletebooks', 'ProductController@destroy');
 	
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	

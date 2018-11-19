@@ -38,25 +38,41 @@ class ProductController extends Controller
 	public function store(Request $request)
 	{
 	    $this->validate($request, [
-	        'name' => 'required',
-	        'price' => 'required|integer',
-	        'quantity' => 'required|integer'
+			'bname' => 'required',
+			'ISBN' => 'required',
+			'author' => 'required',
+			'role' => 'required|integer',
+			'pub_year' => 'required|integer',
+			'publisher' => 'required',
+			'img_s' => 'required',
+	        'img_m' => 'required',
+	        'img_l' => 'required',
+			'quantity' => 'required|integer',
+			'price' => 'required',
 	    ]);
 
-	    $product = new Product();
-	    $product->name = $request->name;
-	    $product->price = $request->price;
-	    $product->quantity = $request->quantity;
+	    $book = new Books();
+	    $book->bname = $request->bname;
+	    $book->ISBN = $request->ISBN;
+	    $book->author = $request->author;
+	    $book->role = $request->role;
+	    $book->pub_year = $request->pub_year;
+	    $book->publisher = $request->publisher;
+	    $book->img_s = $request->img_s;
+	    $book->img_m = $request->img_m;
+	    $book->img_l = $request->img_l;
+	    $book->price = $request->price;
+	    $book->quantity = $request->quantity;
 
-	    if ($this->user->products()->save($product))
+	    if ($this->user->books()->save($book))
 	        return response()->json([
 	            'success' => true,
-	            'product' => $product
+	            'book' => $book
 	        ]);
 	    else
 	        return response()->json([
 	            'success' => false,
-	            'message' => 'Sorry, product could not be added'
+	            'message' => 'Sorry, book could not be added'
 	        ]);
 	}
 	public function update(Request $request, $id)
