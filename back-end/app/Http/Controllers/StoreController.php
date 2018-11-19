@@ -63,5 +63,38 @@ class StoreController extends Controller
 	            'message' => 'Sorry, store could not be updated'
 	        ]);
 	    }
-    }
+	}
+	
+	//finance-store management
+	public function uncheck_store()
+	{
+		return Storeinfo::where('status', '=', '0')
+			->paginate(15)
+			->toArray();
+	}
+
+	public function check_store(Request $request)
+	{
+		$store = Storeinfo::find($request->id);
+		
+		if (!$store) {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, store with id ' . $request->id . ' cannot be found'
+	        ]);
+	    }
+
+	    $updated = $store->update(['status' => 1]);;
+        
+	    if ($updated) {
+	        return response()->json([
+	            'success' => true
+	        ]);
+	    } else {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, store could not be checked'
+	        ]);
+	    }
+	}
 }
