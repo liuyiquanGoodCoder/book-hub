@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Books;
 use Illuminate\Http\Request;
 use JWTAuth;
 
@@ -18,22 +18,22 @@ class ProductController extends Controller
 	public function index()
 	{
 	    return $this->user
-	        ->products()
-	        ->get(['name', 'price', 'quantity'])
-	        ->toArray();
+	        ->books()
+	        ->paginate(15)
+			->toArray();
 	}
-	public function show($id)
+	public function show($bname)
 	{
-	    $product = $this->user->products()->find($id);
-
-	    if (!$product) {
-	        return response()->json([
-	            'success' => false,
-	            'message' => 'Sorry, product with id ' . $id . ' cannot be found'
+		$input = $this->user->books()->where('bname','LIKE','%'.$bname.'%')->paginate(15)->toArray();
+    	if (!$input) {
+    		return response()->json([
+	            'success' => true,
+	            'message' => 'Sorry, book with name ' . $bname . ' cannot be found'
 	        ]);
-	    }
+    	}
 
-	    return $product;
+    	return $input;
+	    
 	}
 	public function store(Request $request)
 	{

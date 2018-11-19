@@ -22,7 +22,6 @@ Route::post('register', 'ApiController@register')->middleware('cors:api');
  
 Route::group(['middleware' => 'auth.jwt'], function () {
     
-    Route::get('products', 'ProductController@index');
     Route::get('products/{id}', 'ProductController@show');
     Route::post('products', 'ProductController@store');
     Route::put('products/{id}', 'ProductController@update');
@@ -51,7 +50,10 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::post('update_projects', 'ProjectController@update_projects');
 	Route::post('delete_projects', 'ProjectController@delete_projects');
 
-	Route::post('userinfo', 'ApiController@userinfo');
+	Route::get('books', 'ProductController@index');
+    Route::get('books/{bname}', 'ProductController@show');
+    
+	
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	
 	Route::post('addpayment', 'BooksController@addpayment');
