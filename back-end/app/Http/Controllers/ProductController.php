@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Books;
+use App\Orders;
 use Illuminate\Http\Request;
 use JWTAuth;
 
@@ -121,5 +122,14 @@ class ProductController extends Controller
 	            'message' => 'Book could not be deleted'
 	        ]);
 	    }
+	}
+	public function business()
+	{
+		$uid = $this->user->id;
+		return Orders::join('books', 'orders.bid', '=', 'books.id')
+			->where('books.user_id', '=', $uid)
+			->select('orders.*', 'books.bname')
+	        ->paginate(15)
+			->toArray();
 	}
 }

@@ -53,7 +53,10 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
     Route::get('books/{bname}', 'ProductController@show');
     Route::post('addbooks', 'ProductController@store');
     Route::post('updatebooks', 'ProductController@update');
-    Route::post('deletebooks', 'ProductController@destroy');
+	Route::post('deletebooks', 'ProductController@destroy');
+	
+	//seller: show business
+	Route::get('business', 'ProductController@business');
 	
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	
