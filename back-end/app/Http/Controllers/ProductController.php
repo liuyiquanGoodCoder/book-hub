@@ -132,4 +132,40 @@ class ProductController extends Controller
 	        ->paginate(15)
 			->toArray();
 	}
+	public function shiplist()
+	{
+		$uid = $this->user->id;
+		return Orders::join('books', 'orders.bid', '=', 'books.id')
+			->where([
+				['books.user_id', '=', $uid],
+				['orders.role', '=', '0'],
+			])
+			->select('orders.*', 'books.bname')
+	        ->paginate(15)
+			->toArray();
+	}
+	public function checkship(Request $request)
+	{
+		$order = Orders::find($request->id);
+		
+		if (!$order) {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, order with id ' . $request->id . ' cannot be found'
+	        ]);
+	    }
+
+	    $updated = $order->update(['role' => 1]);;
+        
+	    if ($updated) {
+	        return response()->json([
+	            'success' => true
+	        ]);
+	    } else {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, order could not be checked'
+	        ]);
+	    }
+	}
 }
