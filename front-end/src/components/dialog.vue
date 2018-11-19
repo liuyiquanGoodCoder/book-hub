@@ -14,6 +14,19 @@
               div.form-group
                 label full name
                 input.form-control
+              div.form-group
+                label Street address
+                input.form-control
+              div.form-group
+                label City
+                input.form-control
+              div.form-group
+                label Region
+                input.form-control
+              div.form-group
+                label Phone number
+                input.form-control
+              
 </template>
 <script>
   export default {
@@ -42,11 +55,13 @@
       background-color: $White;
       border-radius: 20px;
       width: 50%;
-      height: 50%;
       position: absolute;
       left: 50%;
       top: 50%;
       transform: translate(-50%,-50%);
+      min-width: 860px;
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
       .modal-header{
           padding: 15px;
           border-bottom: 1px solid $Greyunderline;
@@ -76,7 +91,8 @@
         .row{
           .column{
             display: inline-block;
-            width: 50%;
+            width: 47%;
+            padding: 0 20px 0 0;
           }
           .right{
               h5{
@@ -87,22 +103,26 @@
                 min-height: 36px;
                 color: $Grepbright;
                 border-bottom: 1px solid $Grey;
+                padding: 12px 0 0 0;
+                text-align: left;
               }
               .address-form{
                 .form-group{
                       margin-bottom: 15px;
                       margin-top: 20px;
                     label{
-                      width: 30%;
+                      display: inline-block;
+                      width: 100px;
                       padding-top: 7px;
                       padding-right: 20px;
                       margin-bottom: 0;
                       text-align: right;
+
                     }
                     .form-control{
                       display: inline-block;
-                      width: 70%;
-                      height: 34px;
+                      width: 230px;
+                      height: 24px;
                       padding: 6px 12px;
                       font-size: 14px;
                       line-height: 1.42857143;
@@ -116,6 +136,7 @@
                       -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
                       -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
                       transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+                      outline: none;
                     }
                 }
               }
