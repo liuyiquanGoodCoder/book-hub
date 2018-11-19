@@ -42,6 +42,7 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::post('update_projects', 'ProjectController@update_projects');
 	Route::post('delete_projects', 'ProjectController@delete_projects');
 
+	//seller: book management
 	Route::get('books', 'ProductController@index');
     Route::get('books/{bname}', 'ProductController@show');
     Route::post('addbooks', 'ProductController@store');

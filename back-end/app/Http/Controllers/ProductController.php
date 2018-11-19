@@ -75,20 +75,19 @@ class ProductController extends Controller
 	            'message' => 'Sorry, book could not be added'
 	        ]);
 	}
-	public function update(Request $request, $id)
+	public function update(Request $request)
 	{
-	    $product = $this->user->products()->find($id);
+		$book = $this->user->books()->find($request->id);
 
-	    if (!$product) {
+		if (!$book) {
 	        return response()->json([
 	            'success' => false,
-	            'message' => 'Sorry, product with id ' . $id . ' cannot be found'
+	            'message' => 'Sorry, book with id ' . $id . ' cannot be found'
 	        ]);
 	    }
 
-	    $updated = $product->fill($request->all())
-	        ->save();
-
+	    $updated = $book->fill($request->all())->save();
+        
 	    if ($updated) {
 	        return response()->json([
 	            'success' => true
@@ -96,29 +95,30 @@ class ProductController extends Controller
 	    } else {
 	        return response()->json([
 	            'success' => false,
-	            'message' => 'Sorry, product could not be updated'
+	            'message' => 'Sorry, book could not be updated'
 	        ]);
 	    }
+	
 	}
-	public function destroy($id)
+	public function destroy(Request $request)
 	{
-	    $product = $this->user->products()->find($id);
+	    $book = $this->user->books()->find($request->id);
 
-	    if (!$product) {
+	    if (!$book) {
 	        return response()->json([
 	            'success' => false,
-	            'message' => 'Sorry, product with id ' . $id . ' cannot be found'
+	            'message' => 'Sorry, book with id ' . $id . ' cannot be found'
 	        ]);
 	    }
 
-	    if ($product->delete()) {
+	    if ($book->delete()) {
 	        return response()->json([
 	            'success' => true
 	        ]);
 	    } else {
 	        return response()->json([
 	            'success' => false,
-	            'message' => 'Product could not be deleted'
+	            'message' => 'Book could not be deleted'
 	        ]);
 	    }
 	}
