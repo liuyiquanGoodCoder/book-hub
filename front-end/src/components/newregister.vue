@@ -12,8 +12,7 @@
 				div.user_title Password
 				div.user_title Confirm Password
 				input.user_password(type="password")
-				input.user_password(type="password")
-				div.underline
+				input.user_confrim_password(type="password")
 				div.user_confirm
 					router-link(to="/register",class="register") Sign in
 					div.login Create
@@ -90,7 +89,13 @@
    					font-size:17px;
 			    }
 			    .user_password{
+			    	width: 43%;
+    				margin-right: 19px;
+			    	border-bottom:1px solid $Greyunderline;
+			    }
+			    .user_confrim_password{
 			    	width:50%;
+			    	border-bottom:1px solid $Greyunderline;
 			    }
 			    .user_confirm{
 			    	position: relative;

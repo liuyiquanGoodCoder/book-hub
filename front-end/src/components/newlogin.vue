@@ -3,20 +3,57 @@
 		div.container
 			div.logo
 				router-link(to="/") Cracker
-			h1 登入
-			div.message 使用您的Cracker账号
+			h1 Sign
+			div.message Use Your Book Hub
 			div.user_information
-				div.user_title 电子邮件地址
-				input.user_email
+				div.user_title Email
+				input.user_email(v-model="userName")
 				div.underline
-				div.user_title 输入您的密码
-				input.user_password(type="password")
+				div.user_title Password
+				input.user_password(type="password" v-model="password")
 				div.underline
 				div.user_confirm
-					router-link(to="/register",class="register") 创建账号
-					div.login 登陆
+					router-link(to="/register",class="register") Create
+					div.login(@click="login") Sign in
 </template>
 <script>
+	export default{
+		data(){
+			return {
+				title:true,
+				error:"",
+				userName:"",
+				password:"",
+				
+			}
+		},
+		components: {
+
+		},
+		methods: {
+			login(){
+				const $this = this;
+				const url = "http://jwt.test/api/login";
+				axios.post(url, {
+				    email: $this.userName,
+				    password: $this.password
+				  })
+				  .then(function (response) {
+				    console.log(response);
+				    if(response.data.success == false){
+				    	$this.title = false;
+				    	$this.error = "你输入的密码和账户名不匹配，是否忘记密码或忘记会员名";
+				    }else if(response.data.success == true){
+				    	//need improve
+				    	$this.$router.go(-1);
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				});
+			}
+		}
+	}
 </script>
 <style lang="scss" scoped>
 	.login_container{
@@ -108,6 +145,7 @@
 					    border-radius: 5px;
 					    text-align: center;
 					    font-size: 16px;
+					    cursor: pointer;
 			    	}
 			    }
 			}
