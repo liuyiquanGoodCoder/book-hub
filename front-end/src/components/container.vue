@@ -35,68 +35,39 @@
 							div.author
 								span 宫崎修一&nbsp;&nbsp;石田保辉
 								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
 </template>
 <script>
+		export default{
+		data(){
+			return {
+				page:1,
+				bookList:{}			
+			}
+		},
+		mounted(){
+			const $this = this;
+			const url = "http://jwt.test/api/home/";
+			debugger;
+			axios.get(url, {
+				    page:$this.page
+				  }).then(function (response) {
+				    if(response.status == 200){
+				    	$this.bookList = response.data.data;
+				    	console.log($this.bookList);
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				});
+		},
+		components: {
+
+		},
+		methods: {
+			
+		}
+	}
+
 	
 </script>
 <style lang="scss" scoped>
