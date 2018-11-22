@@ -2,10 +2,10 @@
 	div
 		div.global-nav-view
 			div.global-nav-container
-				div.flickr-logo-container Cracker
+				a.flickr-logo-container(href="#/") Book Hub
 				ul.nav-menu
-					li 發掘
-					li 建立
+					//- li 發掘
+					//- li 建立
 				ul.gn-tools
 					li
 						router-link(to="/newlogin")	登入
@@ -41,6 +41,8 @@
 				font-size: 24px;
 				font-weight: bolder;
 				overflow: hidden;
+				text-decoration: none;
+    			color: $White;
 			}
 			.nav-menu{
 				float: left;

@@ -99,7 +99,7 @@
 <script>
 	
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	.container{
 		padding-right: 15px;
 	    padding-left: 15px;
