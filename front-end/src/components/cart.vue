@@ -42,6 +42,12 @@
 										td {{address.phone}}
 					div.order.order-operation
 						h5 Order
+						div 
+							span Subtotal:
+							span $100
+						div 
+							button Confirm
+							a(href="#/") Select
 		Dialog(@closeDialog="close" v-if="vm.showDialog" @address="showAddress") 
 						
 
@@ -162,6 +168,56 @@
     								line-height: 40px;
 	    						}
 	    					}
+	    				}
+	    			}
+	    		}
+	    		.order{
+	    			div{
+	    				height: 50px;
+    					line-height: 50px;
+    					text-align: right;
+	    				button{
+	    					outline: none;
+	    					box-sizing: border-box;
+						    display: inline-block;
+						    padding: 0 30px;
+						    height: 40px;
+						    line-height: 40px;
+						    min-width: 80px;
+						    background-color: $Bluesky;
+						    color: $White;
+						    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+						    font-weight: 600;
+						    font-size: 16px;
+						    text-align: center;
+						    text-decoration: none;
+						    -webkit-transition: all .15s ease-in-out;
+						    transition: all .15s ease-in-out;
+						    border-radius: 3px;
+						    border: none;
+						    cursor: pointer;
+						    margin-right: 20px;
+	    				}
+	    				a{
+	    					outline: none;
+	    					box-sizing: border-box;
+						    display: inline-block;
+						    padding: 0 30px;
+						    height: 40px;
+						    line-height: 40px;
+						    min-width: 80px;
+						    background-color: $White;
+						    color: $Bluesky;
+						    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+						    font-weight: 600;
+						    font-size: 16px;
+						    text-align: center;
+						    text-decoration: none;
+						    -webkit-transition: all .15s ease-in-out;
+						    transition: all .15s ease-in-out;
+						    border-radius: 3px;
+						    cursor: pointer;
+						    border:1px solid $Greyunderline;
 	    				}
 	    			}
 	    		}
