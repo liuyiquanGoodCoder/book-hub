@@ -144,6 +144,7 @@
 	    				float: right;
 	    				.form-link{
 	    					color: $titleBlue;
+	    					cursor: pointer;
 	    				}
 	    			}
 	    			.default-address{
