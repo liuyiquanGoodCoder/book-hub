@@ -8,12 +8,49 @@
 					//- li 建立
 				ul.gn-tools
 					li
-						router-link(to="/newlogin")	Sign in
+						router-link(to="/newlogin" v-if="login")	Sign in
 					li
-						router-link(to="/newregister",class="register") Register
+						router-link(to="/newregister" class="register" v-if="login") Register
+					li
+						a(v-if="userName") Welcome {{name}}
+					li
+						router-link(to="/cart" v-if="userName")	MyCart
+					li
+						router-link(to="/newlogin" class="register" v-if="userName" @click="signOut") Sign out
 			
 </template>
 <script>
+	import login from '../components/newlogin'
+	export default {
+		data () {
+			return {
+				userName:false,
+				login:true,
+				name:""
+			}
+		},
+		components: {
+			login
+		},
+		 mounted() {
+		 	var userInfo = document.cookie.split(";"),
+		 	    name = userInfo[1],
+		 		token = userInfo[2];
+		   if(token == undefined){
+					this.userName = false;
+					this.login = true;
+				}else{
+					this.userName = true;
+					this.login = false;
+				}
+		 },
+		methods:{
+			signOut(){
+				 document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+			},
+			
+	}
+}
 </script>
 <style lang="scss">
 	@import url("../scss/color.scss");

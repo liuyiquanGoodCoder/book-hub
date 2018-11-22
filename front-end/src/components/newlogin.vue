@@ -17,6 +17,7 @@
 					div.login(@click="login") Sign in
 </template>
 <script>
+	import Header from '../components/header'
 	export default{
 		data(){
 			return {
@@ -44,7 +45,12 @@
 				    	$this.title = false;
 				    	$this.error = "你输入的密码和账户名不匹配，是否忘记密码或忘记会员名";
 				    }else if(response.data.success == true){
-				    	//need improve
+				    	var userInfo = {};
+				    		userInfo.userName = $this.userName.substring(0, $this.userName.indexOf('@'));
+				    	    userInfo.token = response.data.token;
+				    	    debugger;
+				    	document.cookie="";
+				    	document.cookie = userInfo.userName +'; '+userInfo.token;
 				    	$this.$router.go(-1);
 				    }
 				  })
