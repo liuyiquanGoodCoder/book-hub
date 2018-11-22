@@ -31,16 +31,18 @@
 									tr.thead
 										td Name
 										td Region
-										td Information
+										td City
+										td Street Address
 										td Phone Number
 									tr
-										td liu
-										td China
-										td Taiyuan
-										td 93115197
+										td {{address.name}}
+										td {{address.region}}
+										td {{address.city}}
+										td {{address.address}}
+										td {{address.phone}}
 					div.order.order-operation
 						h5 Order
-		Dialog(@closeDialog="close" v-if="vm.showDialog")
+		Dialog(@closeDialog="close" v-if="vm.showDialog" @address="showAddress") 
 						
 
 </template>
@@ -52,7 +54,8 @@
 			return {
 				 vm: {
 	              showDialog: false,
-	            } 
+	            },
+	            address:{} 
 			}
 		},
 		components: {
@@ -60,11 +63,11 @@
 			Dialog
 		},
 		methods:{
-			dialog(){
-				this.isShow = true;	
-			},
 			close(){
 	          	this.vm.showDialog = false;
+	        },
+	        showAddress(address){
+	        	this.address = address;
 	        }
 	}
 }

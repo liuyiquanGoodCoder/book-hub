@@ -7,38 +7,120 @@
         h4.modal-title address
       div.modal-body
         div.row
-          div.column 这是一段信息
+          div.column.left
+            div.address-card(v-for="(item,index) in addressItems")
+              div.address-header
+                div.name {{item.city}}
+                div.pull-right
+                  a(@click="showDetail(item)") Detail
+                  a(@click="useItem(item)") Use 
+                  a(@click="changeItem(index)") Change
+                  a(@click="deleteItem(index)") Delete
+              div.address-detail(v-if="item.show")
+                div
+                  span.label Full Name:
+                  span {{item.name}}
+                div 
+                  span.label Region:
+                  span {{item.region}}
+                div
+                  span.label City:
+                  span {{item.city}}
+                div
+                  span.label Street Address:
+                  span {{item.address}}
+                div
+                  span.label Phone Number:
+                  span {{item.phone}}
+
           div.column.right
             h5 Add
             div.address-form
               div.form-group
-                label full name
-                input.form-control
+                label Full Name
+                input.form-control(v-model="name")
               div.form-group
-                label Street address
-                input.form-control
+                label Street Address
+                input.form-control(v-model="address")
               div.form-group
                 label City
-                input.form-control
+                input.form-control(v-model="city")
               div.form-group
                 label Region
-                input.form-control
+                input.form-control(v-model="region")
               div.form-group
-                label Phone number
-                input.form-control
+                label Phone Number
+                input.form-control(v-model="phone")
               div.form-group
-                button.btn Add
+                button.btn(@click="add" v-if="add_show") Add
+                button.btn(@click="save" v-if="save_show") Save
               
 </template>
 <script>
   export default {
     data(){
-      return {}
+      return {
+        addressItems:[],
+        name:"",
+        address:"",
+        city:"",
+        region:"",
+        phone:"",
+        add_show:true,
+        save_show:false,
+        index:0
+      }
     },
     methods:{
       closeDialog(){
          //给父组件传参
-         this.$emit('closeDialog',false)
+         this.$emit('closeDialog',false);
+      },
+      showDetail(item){
+        if(item.show == false){
+          item.show = true;
+        }else{
+          item.show = false;
+        }
+      },
+      add(){
+        var item = {};
+        item.name = this.name;
+        item.address = this.address;
+        item.city = this.city;
+        item.region = this.region;
+        item.phone = this.phone;
+        item.show = false;
+        this.addressItems.push(item);
+        console.log(this.addressItems);
+
+      },
+      save(){
+        this.addressItems[this.index].name = this.name;
+        this.addressItems[this.index].address = this.address;
+        this.addressItems[this.index].city = this.city;
+        this.addressItems[this.index].region = this.region;
+        this.addressItems[this.index].phone = this.phone;
+        this.add_show = true;
+        this.save_show = false;
+      },
+      deleteItem(index){
+        this.addressItems.splice(index,1);
+      },
+      changeItem(index){
+        this.name = this.addressItems[index].name;
+        this.address = this.addressItems[index].address;
+        this.city = this.addressItems[index].city;
+        this.region = this.addressItems[index].region;
+        this.phone = this.addressItems[index].phone;
+        this.add_show = false;
+        this.save_show = true;
+        this.index = index;
+      },
+      useItem(item){
+        //callback address
+        this.$emit('address',item);
+        this.$emit('closeDialog',false);
       }
     }
   }
@@ -67,6 +149,7 @@
       .modal-header{
           padding: 15px;
           border-bottom: 1px solid $Greyunderline;
+          text-align: left;
           h4{
             margin: 0;
             line-height: 1.42857143;
@@ -93,8 +176,60 @@
         .row{
           .column{
             display: inline-block;
+            float: left;
             width: 47%;
             padding: 0 20px 0 0;
+            height: 100%;
+            min-height: 400px;
+          }
+          .left{
+            .address-card{
+              border: 1px solid $Greyunderline;
+              padding: 10px 20px;
+              border-radius: 4px;
+              margin: 12px 20px;
+              .address-header{
+                text-align: left;
+                .name{
+                    display: inline-block;
+                    font-weight: 700;
+                }
+                .pull-right{
+                    float: right;
+                    a{
+                      display: inline-block;
+                      margin-right: 6px;
+                      text-align: center;
+                      cursor: pointer;
+                      color: $BlueButton;
+                      -webkit-transition: all,.25s,ease;
+                      -khtml-transition: all,.25s,ease;
+                      -moz-transition: all,.25s,ease;
+                      -ms-transition: all,.25s,ease;
+                      -o-transition: all,.25s,ease;
+                      text-decoration: none;
+                      transition: all,.25s,ease;
+                      height: 17px;
+                    }
+
+                }
+              }
+            }
+            .address-detail{
+              margin-top: 15px;
+              div{
+                  text-align: left;
+                  height: 30px;
+                  line-height: 30px; 
+                  .label{
+                          display: inline-block;
+                          color: $Grepbright;
+                          width: 110px;
+                          text-align: right;
+                          margin-right: 20px;
+                    }
+              }
+            }
           }
           .right{
               h5{
