@@ -3,20 +3,20 @@
 		div.container
 			div.logo
 				router-link(to="/") Cracker
-			h1 登入
-			div.message 使用您的Cracker账号
+			h1 Sign in
+			div.message Use Your Book Hub 
 			div.user_information
-				div.user_title 电子邮件地址
+				div.user_title Email Address
 				input.user_email
 				div.underline
-				div.user_title 输入您的密码
-				div.user_title 确认您的密码
+				div.user_title Password
+				div.user_title Confirm Password
 				input.user_password(type="password")
 				input.user_password(type="password")
 				div.underline
 				div.user_confirm
-					router-link(to="/register",class="register") 登陆现有账号
-					div.login 创建
+					router-link(to="/register",class="register") Sign in
+					div.login Create
 </template>
 <script>
 </script>

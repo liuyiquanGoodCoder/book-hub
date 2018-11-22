@@ -8,9 +8,9 @@
 					//- li 建立
 				ul.gn-tools
 					li
-						router-link(to="/newlogin")	登入
+						router-link(to="/newlogin")	Sign in
 					li
-						router-link(to="/register",class="register")	注册
+						router-link(to="/newregister",class="register") Register
 			
 </template>
 <script>
