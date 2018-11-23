@@ -1,12 +1,11 @@
 <template lang="jade">
 	div
-		Header
 		div.container
 			div.product-row
 				div.product-detail
 					div.book-image
 						a
-							img(src="http://file.ituring.com.cn/SmallCover/17071d658353b2fc66bb")
+							img(v-bind:src="bookInfo.img_l")
 						div.book-fav-vote
 							a.article-vote
 								span.number 20
@@ -20,16 +19,17 @@
 					div.book-info
 						div.book-series Book Hub
 						div.book-title
-							h2 Head First JavaScript
+							h2 {{productName}}
 						div.book-author
-							span Eric T. Freeman,Elisabeth Robson   
-							span Yuan GuoZhong
+							span {{bookInfo.author}}
+							br   
+							span {{bookInfo.publisher}}
 						div.book-status
 							span.tag 
 								a.post-tag javacript
 								a.post-tag web
 								a.post-tag front-end
-						div.book-introduction 本书语言和版式活泼，内容讲解深入浅出，是难得的JavaScript入门书。本书内容涵盖JavaScript的基本知识以及对象、函数和浏览器文档对象模型等高阶主题。书中配备了大量有趣的实例、图示和练习，让读者轻轻松松掌握JavaScript。
+						div.book-introduction JavaScript。
 				div.bought-side
 					div.book-approaches
 						dl
@@ -48,7 +48,7 @@
 							hr
 							dl
 								dt paperback
-								span.price $109
+								span.price ${{bookInfo.price}}
 							div.buy-btns
 								a.buy-btn Add to Cart
 							div.where-to-buy
@@ -65,16 +65,32 @@
                                 
 </template>
 <script>
-	import Header from '../components/header'
 	export default {
-		data () {
+		props:['productName'],
+		data() {
 			return {
-				items: []   /* 定义一个空数组数据items */
+				bname:this.productName,
+				url:'http://jwt.test/api/findbook/',
+				bookInfo:"",
+
 			}
 		},
+		mounted(){
+			
+			let $this = this;
+			axios.get($this.url+this.bname).then(function (response) {
+				    if(response.status == 200){
+				    	$this.bookInfo = response.data.data[0];
+				    	console.log($this.bookInfo);
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+			});
+		},
 		components: {
-			Header
-		}
+		},
+
 	}
 </script>
 <style lang="scss">
