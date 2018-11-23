@@ -2,8 +2,8 @@
 	div.login_container
 		div.container
 			div.logo
-				router-link(to="/") Cracker
-			h1 Sign in
+				router-link(to="/") Book Hub
+			h1 Register
 			div.message Use Your Book Hub 
 			div.user_information
 				div.user_title Email Address
@@ -14,12 +14,12 @@
 				input.user_password(type="password")
 				input.user_confrim_password(type="password")
 				div.user_confirm
-					router-link(to="/register",class="register") Sign in
+					router-link(to="/newlogin",class="register") Sign in
 					div.login Create
 </template>
 <script>
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	.login_container{
 		position: absolute;
 		display: block;

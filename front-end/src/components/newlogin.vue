@@ -2,18 +2,18 @@
 	div.login_container
 		div.container
 			div.logo
-				router-link(to="/") Cracker
-			h1 Sign
+				router-link(to="/") Book Hub
+			h1 Sign in
 			div.message Use Your Book Hub
 			div.user_information
-				div.user_title Email
+				div.user_title Email Address
 				input.user_email(v-model="userName")
 				div.underline
 				div.user_title Password
 				input.user_password(type="password" v-model="password")
 				div.underline
 				div.user_confirm
-					router-link(to="/register",class="register") Create
+					router-link(to="/newregister",class="register") Create
 					div.login(@click="login") Sign in
 </template>
 <script>
