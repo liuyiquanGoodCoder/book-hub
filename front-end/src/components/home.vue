@@ -1,22 +1,26 @@
 <template>
 <div>
 	<Header></Header>
-	<Container></Container>
+	<Container v-if="show_container"></Container>
+  <Product v-if="show_product"></Product>
 </div>
 	
 </template>
 <script>
 	import Container from '../components/container'
   import Header from '../components/header'
-	export default {
+  import Product from '../components/product'
+  export default {
   data () {
       return {
-          items: []   /* 定义一个空数组数据items */
+          show_container:true,
+          show_product:false
       }
   },
   components: {
     Header,
-    Container
+    Container,
+    Product,
   }
  } 
 </script>
