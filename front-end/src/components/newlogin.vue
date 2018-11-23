@@ -48,9 +48,8 @@
 				    	var userInfo = {};
 				    		userInfo.userName = $this.userName.substring(0, $this.userName.indexOf('@'));
 				    	    userInfo.token = response.data.token;
-				    	    debugger;
-				    	document.cookie="";
-				    	document.cookie = userInfo.userName +'; '+userInfo.token;
+				    	document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+				    	document.cookie = userInfo.userName +'|' +userInfo.token;
 				    	$this.$router.go(-1);
 				    }
 				  })

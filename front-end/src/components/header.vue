@@ -12,11 +12,11 @@
 					li
 						router-link(to="/newregister" class="register" v-if="login") Register
 					li
-						a(v-if="userName") Welcome {{name}}
+						a(v-if="userName") {{name}}
 					li
 						router-link(to="/cart" v-if="userName")	MyCart
 					li
-						router-link(to="/newlogin" class="register" v-if="userName" @click="signOut") Sign out
+						a( class="register" v-if="userName" @click="signOut") Sign out
 			
 </template>
 <script>
@@ -26,30 +26,46 @@
 			return {
 				userName:false,
 				login:true,
-				name:""
+				name:"",
+				token:"",
+				cookie:document.cookie
 			}
 		},
 		components: {
 			login
 		},
 		 mounted() {
-		 	var userInfo = document.cookie.split(";"),
-		 	    name = userInfo[1],
-		 		token = userInfo[2];
-		   if(token == undefined){
-					this.userName = false;
-					this.login = true;
-				}else{
-					this.userName = true;
-					this.login = false;
-				}
+		 	let cookie  = this.cookie.split(";");
+		 	if(cookie[1]){
+		 		let userInfo = cookie[1].split("|");
+		 	    this.name = userInfo[0];
+		 	    this.token = userInfo[1];
+			   if(this.token == undefined){
+						this.userName = false;
+						this.login = true;
+					}else{
+						this.userName = true;
+						this.login = false;
+					}
+			 	}
+		 	
 		 },
 		methods:{
 			signOut(){
 				 document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+				 this.cookie = document.cookie;
 			},
 			
-	}
+		},
+		watch:{
+			cookie:function() {
+				if(!document.cookie.split(";")[1]){
+					this.userName = false;
+					this.login = true;
+				}
+			}
+		}
+		
 }
 </script>
 <style lang="scss">
