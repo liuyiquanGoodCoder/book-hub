@@ -31,7 +31,7 @@
 								img(v-bind:src="item.img_m")
 						div.book-info
 							div.name
-								a(href="/product/item.bname") {{item.bname}}
+								a(@click="showProduct(item.bname)") {{item.bname}}
 							div.author
 								span {{item.author}}
 								span
@@ -50,7 +50,6 @@
 			axios.get($this.url).then(function (response) {
 				    if(response.status == 200){
 				    	$this.bookList = response.data.data;
-				    	console.log($this.bookList);
 				    }
 				  })
 				  .catch(function (error) {
@@ -84,12 +83,14 @@
 				axios.get($this.url+'?page='+this.page).then(function (response) {
 					    if(response.status == 200){
 					    	$this.bookList = response.data.data;
-					    	console.log($this.bookList);
 					    }
 					  })
 					  .catch(function (error) {
 					    console.log(error);
 					});
+			},
+			showProduct(bname){
+				this.$emit('bname',bname);
 			}
 		}
 	}
@@ -278,6 +279,7 @@
 			    		.name{
 			    			a{
 			    				display: inline-block;
+			    				cursor: pointer;
 							    text-decoration: none;
 							    color: $titleBlue;
 							    font-size: 15px;
