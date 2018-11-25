@@ -12,13 +12,13 @@
 								td Price
 								td.format Format
 								td.quantity Quantity
-							tr
+							tr(v-for="(item,index) in cartList")
 								td.book-name
-									a Head First JavaScript
-								td 109
-								td.format mobi
+									a {{item.bname}}
+								td ${{item.price}}
+								td.format paper
 								td.quantity
-									input(value="1")
+									input(v-bind:value="item.quantity")
 					div.address.order-operation
 						h5 Address
 						div.address-content
@@ -60,8 +60,23 @@
 				 vm: {
 	              showDialog: false,
 	            },
-	            address:{} 
+	            address:{},
+	            cartList:{},
+	            token:""
 			}
+		},
+		mounted(){
+			let $this = this;
+			let userInfo = document.cookie.split("|");
+		 	    this.token = userInfo[1];
+			axios.get("http://jwt.test/api/showcarts?token="+this.token).then(function (response) {
+				    if(response.status == 200){
+				    	$this.cartList = response.data;
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+			});
 		},
 		components: {
 			Header,
