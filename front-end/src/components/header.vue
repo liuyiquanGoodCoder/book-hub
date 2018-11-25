@@ -35,9 +35,10 @@
 			login
 		},
 		 mounted() {
-		 	let cookie  = this.cookie.split(";");
-		 	if(cookie[1]){
-		 		let userInfo = cookie[1].split("|");
+		 	//let cookie  = this.cookie.split(";");
+		 	
+		 		
+		 		let userInfo = this.cookie.split("|");
 		 	    this.name = userInfo[0];
 		 	    this.token = userInfo[1];
 			   if(this.token == undefined){
@@ -47,7 +48,7 @@
 						this.userName = true;
 						this.login = false;
 					}
-			 	}
+			 	
 		 	
 		 },
 		methods:{
