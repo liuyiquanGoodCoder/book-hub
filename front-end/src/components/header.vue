@@ -2,7 +2,7 @@
 	div
 		div.global-nav-view
 			div.global-nav-container
-				a.flickr-logo-container(href="#/") Book Hub
+				a.flickr-logo-container(@click="showHome") Book Hub
 				ul.nav-menu
 					//- li 發掘
 					//- li 建立
@@ -14,7 +14,7 @@
 					li
 						a(v-if="userName") {{name}}
 					li
-						router-link(to="/cart" v-if="userName")	MyCart
+						a(@click="showCart" v-if="userName")	MyCart
 					li
 						a( class="register" v-if="userName" @click="signOut") Sign out
 			
@@ -56,6 +56,12 @@
 				 document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
 				 this.cookie = document.cookie;
 			},
+			showCart(){
+				this.$emit('showCart',true);
+			},
+			showHome(){
+				this.$emit('showHome',true);
+			}
 			
 		},
 		watch:{
@@ -97,6 +103,7 @@
 				overflow: hidden;
 				text-decoration: none;
     			color: $White;
+    			cursor: pointer;
 			}
 			.nav-menu{
 				float: left;
@@ -133,6 +140,7 @@
 			    	a{
     					color: $White;
     					text-decoration: none;
+    					cursor: pointer;
     					&:hover{
     					  opacity:.7;
     					}

@@ -1,8 +1,8 @@
 <template>
 <div>
-	<Header></Header>
+	<Header @showCart="showCart" @showHome="showHome"></Header>
 	<Container v-if="show_container" @bname="showProduct"></Container>
-  <Product v-if="show_product" v-bind:productName = "bookname" @showCart="showCart"></Product>
+  <Product v-if="show_product" v-bind:productName = "bookname" @showCart="showCart" @showHome="showHome"></Product>
   <Cart v-if="show_cart"></Cart>
 </div>
 	
@@ -32,9 +32,16 @@
       this.bookname = bname;
       this.show_container=false;
       this.show_product=true;
+       this.show_cart=false;
     },
-    showCart(showCart){
+    showCart(){
+      this.show_container=false;
       this.show_cart=true;
+      this.show_product=false;
+    },
+    showHome(){
+      this.show_container=true;
+      this.show_cart=false;
       this.show_product=false;
     }
   }
