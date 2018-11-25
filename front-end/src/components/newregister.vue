@@ -2,25 +2,24 @@
 	div.login_container
 		div.container
 			div.logo
-				router-link(to="/") Cracker
-			h1 登入
-			div.message 使用您的Cracker账号
+				router-link(to="/") Book Hub
+			h1 Register
+			div.message Use Your Book Hub 
 			div.user_information
-				div.user_title 电子邮件地址
+				div.user_title Email Address
 				input.user_email
 				div.underline
-				div.user_title 输入您的密码
-				div.user_title 确认您的密码
+				div.user_title Password
+				div.user_title Confirm Password
 				input.user_password(type="password")
-				input.user_password(type="password")
-				div.underline
+				input.user_confrim_password(type="password")
 				div.user_confirm
-					router-link(to="/register",class="register") 登陆现有账号
-					div.login 创建
+					router-link(to="/newlogin",class="register") Sign in
+					div.login Create
 </template>
 <script>
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	.login_container{
 		position: absolute;
 		display: block;
@@ -90,7 +89,13 @@
    					font-size:17px;
 			    }
 			    .user_password{
+			    	width: 43%;
+    				margin-right: 19px;
+			    	border-bottom:1px solid $Greyunderline;
+			    }
+			    .user_confrim_password{
 			    	width:50%;
+			    	border-bottom:1px solid $Greyunderline;
 			    }
 			    .user_confirm{
 			    	position: relative;

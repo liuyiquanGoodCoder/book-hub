@@ -2,18 +2,71 @@
 	div
 		div.global-nav-view
 			div.global-nav-container
-				div.flickr-logo-container Cracker
+				a.flickr-logo-container(href="#/") Book Hub
 				ul.nav-menu
-					li 發掘
-					li 建立
+					//- li 發掘
+					//- li 建立
 				ul.gn-tools
 					li
-						router-link(to="/newlogin")	登入
+						router-link(to="/newlogin" v-if="login")	Sign in
 					li
-						router-link(to="/register",class="register")	注册
+						router-link(to="/newregister" class="register" v-if="login") Register
+					li
+						a(v-if="userName") {{name}}
+					li
+						router-link(to="/cart" v-if="userName")	MyCart
+					li
+						a( class="register" v-if="userName" @click="signOut") Sign out
 			
 </template>
 <script>
+	import login from '../components/newlogin'
+	export default {
+		data () {
+			return {
+				userName:false,
+				login:true,
+				name:"",
+				token:"",
+				cookie:document.cookie
+			}
+		},
+		components: {
+			login
+		},
+		 mounted() {
+		 	let cookie  = this.cookie.split(";");
+		 	if(cookie[1]){
+		 		let userInfo = cookie[1].split("|");
+		 	    this.name = userInfo[0];
+		 	    this.token = userInfo[1];
+			   if(this.token == undefined){
+						this.userName = false;
+						this.login = true;
+					}else{
+						this.userName = true;
+						this.login = false;
+					}
+			 	}
+		 	
+		 },
+		methods:{
+			signOut(){
+				 document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+				 this.cookie = document.cookie;
+			},
+			
+		},
+		watch:{
+			cookie:function() {
+				if(!document.cookie.split(";")[1]){
+					this.userName = false;
+					this.login = true;
+				}
+			}
+		}
+		
+}
 </script>
 <style lang="scss">
 	@import url("../scss/color.scss");
@@ -41,6 +94,8 @@
 				font-size: 24px;
 				font-weight: bolder;
 				overflow: hidden;
+				text-decoration: none;
+    			color: $White;
 			}
 			.nav-menu{
 				float: left;

@@ -26,8 +26,4 @@ class UpdateOrdersTable extends Migration
      *
      * @return void
      */
-    public function down()
-    {
-        //
-    }
 }

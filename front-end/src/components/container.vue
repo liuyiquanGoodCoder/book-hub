@@ -20,86 +20,84 @@
 					h4 
 						a Popular Books
 					div.book-btn
-						a.btn
+						a.btn(@click="left")
 							span.fa.left 
-						a.btn
+						a.btn(@click="right")
 							span.fa.right
 				ul.books-items
-					li.book-item
+					li.book-item(v-for="(item,index) in bookList")
 						div.book-img
 							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
+								img(v-bind:src="item.img_m")
 						div.book-info
 							div.name
-								a(href="/book/2464") 我的第一本算法书
+								a(@click="showProduct(item.bname)") {{item.bname}}
 							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
-					li.book-item
-						div.book-img
-							a
-								img(src="http://file.ituring.com.cn/SmallCover/181054529974c29f37d5")
-						div.book-info
-							div.name
-								a(href="/book/2464") 我的第一本算法书
-							div.author
-								span 宫崎修一&nbsp;&nbsp;石田保辉
-								span 张贝&nbsp;&nbsp;译
+								span {{item.author}}
+								span
 </template>
 <script>
+		export default{
+		data(){
+			return {
+				page:1,
+				bookList:{},
+				url:"http://jwt.test/api/home/"			
+			}
+		},
+		mounted(){
+			const $this = this;
+			axios.get($this.url).then(function (response) {
+				    if(response.status == 200){
+				    	$this.bookList = response.data.data;
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				});
+		},
+		components: {
+
+		},
+		methods: {
+			left(){
+				if(this.page>1){
+					this.page = this.page-1;
+					const $this = this;
+					axios.get($this.url+'?page='+this.page).then(function (response) {
+					    if(response.status == 200){
+					    	$this.bookList = response.data.data;
+					    	console.log($this.bookList);
+					    }
+					  })
+					  .catch(function (error) {
+					    console.log(error);
+					});
+
+				}
+
+			},
+			right(){
+				this.page = this.page+1;
+				const $this = this;
+				axios.get($this.url+'?page='+this.page).then(function (response) {
+					    if(response.status == 200){
+					    	$this.bookList = response.data.data;
+					    }
+					  })
+					  .catch(function (error) {
+					    console.log(error);
+					});
+			},
+			showProduct(bname){
+				this.$emit('bname',bname);
+			}
+		}
+	}
+
 	
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 	.container{
 		padding-right: 15px;
 	    padding-left: 15px;
@@ -226,12 +224,9 @@
 			    }
     		}
     		.books-items{
-    			white-space: nowrap;
 			    margin-left: 0;
 			    margin-right: 0;
 			    padding:0;
-			    overflow: auto;
-			    -ms-overflow-style: none;
 			    width: 80%;
 			    height: auto;
 			    .book-item{
@@ -284,6 +279,7 @@
 			    		.name{
 			    			a{
 			    				display: inline-block;
+			    				cursor: pointer;
 							    text-decoration: none;
 							    color: $titleBlue;
 							    font-size: 15px;

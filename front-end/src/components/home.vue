@@ -1,22 +1,34 @@
 <template>
 <div>
 	<Header></Header>
-	<Container></Container>
+	<Container v-if="show_container" @bname="showProduct"></Container>
+  <Product v-if="show_product" v-bind:productName = "bookname"></Product>
 </div>
 	
 </template>
 <script>
-	import Header from '../components/header'
 	import Container from '../components/container'
-	export default {
+  import Header from '../components/header'
+  import Product from '../components/product'
+  export default {
   data () {
       return {
-          items: []   /* 定义一个空数组数据items */
+          show_container:true,
+          show_product:false,
+          bookname:""
       }
   },
   components: {
     Header,
-    Container
+    Container,
+    Product,
+  },
+  methods:{
+    showProduct(bname){
+      this.bookname = bname;
+      this.show_container=false;
+      this.show_product=true;
+    }
   }
  } 
 </script>
