@@ -1,6 +1,5 @@
 <template lang="jade">
 	div
-		Header
 		div.container
 			div.cart-row
 				div.block-header
