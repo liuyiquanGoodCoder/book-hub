@@ -50,7 +50,7 @@
 								dt paperback
 								span.price ${{bookInfo.price}}
 							div.buy-btns
-								a.buy-btn Add to Cart
+								a.buy-btn(@click="addCart") Add to Cart
 							div.where-to-buy
 								h4 Other Buy
 								ul
@@ -72,6 +72,9 @@
 				bname:this.productName,
 				url:'http://jwt.test/api/findbook/',
 				bookInfo:"",
+				bid:"",
+				cookie:document.cookie,
+				token:""
 
 			}
 		},
@@ -81,7 +84,8 @@
 			axios.get($this.url+this.bname).then(function (response) {
 				    if(response.status == 200){
 				    	$this.bookInfo = response.data.data[0];
-				    	console.log($this.bookInfo);
+				    	$this.bid = $this.bookInfo.id;
+				    	console.log($this.bid);
 				    }
 				  })
 				  .catch(function (error) {
@@ -90,6 +94,24 @@
 		},
 		components: {
 		},
+		methods:{
+			addCart(){
+				let userInfo = this.cookie.split("|");
+		 	    this.token = userInfo[1];
+		 	    //add if
+				axios.post("http://jwt.test/api/addtocarts", {
+				    	"bid":this.bid,
+						"quantity":1,
+						"token":this.token
+				  })
+				  .then(function (response) {
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				});
+				this.$emit('showCart',true);
+			}
+		}
 
 	}
 </script>

@@ -1,6 +1,5 @@
 <template lang="jade">
 	div
-		Header
 		div.container
 			div.cart-row
 				div.block-header
@@ -13,13 +12,13 @@
 								td Price
 								td.format Format
 								td.quantity Quantity
-							tr
+							tr(v-for="(item,index) in cartList")
 								td.book-name
-									a Head First JavaScript
-								td 109
-								td.format mobi
+									a {{item.bname}}
+								td ${{item.price}}
+								td.format paper
 								td.quantity
-									input(value="1")
+									input(v-bind:value="item.quantity")
 					div.address.order-operation
 						h5 Address
 						div.address-content
@@ -35,18 +34,18 @@
 										td Street Address
 										td Phone Number
 									tr
-										td {{address.name}}
-										td {{address.region}}
-										td {{address.city}}
-										td {{address.address}}
-										td {{address.phone}}
+										td {{address.receiver}}
+										td {{address.countrycode}}
+										td {{address.citycode}}
+										td {{address.addline1}}
+										td {{address.phonenum}}
 					div.order.order-operation
 						h5 Order
 						div 
 							span Subtotal:
-							span $100
+							span ${{subtotal}}
 						div 
-							button Confirm
+							button(@click="order") Confirm
 							a(href="#/") Select
 		Dialog(@closeDialog="close" v-if="vm.showDialog" @address="showAddress") 
 						
@@ -61,8 +60,38 @@
 				 vm: {
 	              showDialog: false,
 	            },
-	            address:{} 
+	            address:{},
+	            cartList:{},
+	            token:"",
+	            subtotal:0,
+	            cookie:document.cookie
 			}
+		},
+		mounted(){
+			let $this = this;
+			let userInfo = document.cookie.split("|");
+		 	    this.token = userInfo[1];
+			axios.get("http://jwt.test/api/showcarts?token="+this.token).then(function (response) {
+				    if(response.status == 200){
+				    	$this.cartList = response.data;
+				    	for(var i=0,j=$this.cartList.length;i<j;i++){
+				    		$this.subtotal = $this.subtotal+$this.cartList[i].price*$this.cartList[i].quantity;
+				    	}
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+			});
+			axios.get("http://jwt.test/api/showaddresses?token="+this.token).then(function (response) {
+				    if(response.status == 200){
+				    	//
+				    	$this.address = response.data[0];
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+			});
+
 		},
 		components: {
 			Header,
@@ -74,8 +103,49 @@
 	        },
 	        showAddress(address){
 	        	this.address = address;
+	        },
+	        order(){
+	        	let orders = [];
+	        	let userInfo = this.cookie.split("|");
+		 	    let token = userInfo[1];
+	        	for(var i=0,j=this.cartList.length;i<j;i++){
+	        		let orderItem = {};
+	        		orderItem.bid = this.cartList[i].bid;
+	        		orderItem.quantity = this.cartList[i].quantity;
+	        		orderItem.price = this.cartList[i].price;
+	        		orderItem.address_id  = this.address.id;
+	        		orders.push(orderItem);
+
+	        	}
+	        	console.log(orders);
+	        	axios.post("http://jwt.test/api/orderbooks", {
+				    orders: orders,
+				    token: token
+				  })
+				  .then(function (response) {
+				    console.log(response);
+				    if(response.data.success == false){
+				    	//
+				    }else if(response.data.success == true){
+				    	alert("success");
+				    	this.$emit('showHome',true);
+				    }
+				  })
+				  .catch(function (error) {
+				    console.log(error);
+				});
 	        }
-	}
+		},
+		watch:{
+			cartList:function() {
+				for(var i=0,j=this.cartList.length;i<j;i++){
+				    		this.subtotal = this.subtotal+this.cartList[i].price*this.cartList[i].quantity;
+				 }
+			},
+			immediate: true,
+			//need change
+			//deep:true
+		}
 }
 
 </script>

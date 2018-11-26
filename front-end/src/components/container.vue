@@ -67,7 +67,6 @@
 					axios.get($this.url+'?page='+this.page).then(function (response) {
 					    if(response.status == 200){
 					    	$this.bookList = response.data.data;
-					    	console.log($this.bookList);
 					    }
 					  })
 					  .catch(function (error) {
