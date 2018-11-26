@@ -315,7 +315,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-6">
+           <!-- general form elements -->
+          <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Update Store Information</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Store Name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Location</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter location">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Phone Number</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter phone">
+                  </div>
+                  <div class="form-group">
+                    <label>Textarea</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                  </div>
+                  
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>                       
             
+          </div>
+            <!-- /.card -->
           </div>
           <!-- /.col-md-6 -->
           <div class="col-lg-6">

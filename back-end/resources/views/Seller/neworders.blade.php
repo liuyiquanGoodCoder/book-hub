@@ -314,8 +314,53 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-lg-6">
-            
+          <div class="col-lg-12">
+            <!-- TABLE: LATEST ORDERS -->
+            <div class="card">
+              <div class="card-header border-transparent">
+                <h3 class="card-title">New Orders</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-widget="collapse">
+                    <i class="fa fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-widget="remove">
+                    <i class="fa fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <table class="table m-0">
+                    <thead>
+                    <tr>
+                      <th>Orcer ID</th>
+                      <th>Name</th>
+                      <th>Status</th>
+                      <th>Pay</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                      <td>Call of Duty IV</td>
+                      <td><span class="badge badge-success">Paid</span></td>
+                      <td>
+                      <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Pay For it</a>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.table-responsive -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer clearfix">
+                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
           </div>
           <!-- /.col-md-6 -->
           <div class="col-lg-6">

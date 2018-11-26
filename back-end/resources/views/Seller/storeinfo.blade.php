@@ -315,10 +315,95 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-6">
-            
+            <!-- About Me Box -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Store Information</h3>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <strong><i class="fa fa-file mr-1"></i> Store Name</strong>
+
+                <p class="text-muted">
+                  Shang Wu Yin Shu Ju
+                </p>
+
+                <hr>
+
+                <strong><i class="fa fa-map-marker mr-1"></i> Location</strong>
+
+                <p class="text-muted">Lok Fu, Wong Tai Xin</p>
+
+                <hr>
+
+                <strong><i class="fa fa-envelope mr-1"></i> Email:</strong>
+
+                <p class="text-muted">
+                  12345@gmail.com
+                </p>
+
+                <hr>
+
+                <strong><i class="fa fa-phone mr-1"></i> Phone Number:</strong>
+
+                <p class="text-muted">
+                  852-59875977
+                </p>
+
+                <hr>
+
+                <strong><i class="fa fa-file-text-o mr-1"></i> Details</strong>
+
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+              
+                <a href="/updatestore" class="btn btn-primary btn-block"><b>Update</b></a>
+              
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
           </div>
           <!-- /.col-md-6 -->
           <div class="col-lg-6">
+            
+          <!-- general form elements -->
+          <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Create Store</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form role="form">
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Store Name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Location</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter location">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputEmail1">Phone Number</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter phone">
+                  </div>
+                  <div class="form-group">
+                    <label>Textarea</label>
+                    <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                  </div>
+                  
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>                       
             
           </div>
           <!-- /.col-md-6 -->
