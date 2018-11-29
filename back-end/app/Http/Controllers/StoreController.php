@@ -84,7 +84,7 @@ class StoreController extends Controller
 	        ]);
 	    }
 
-	    $updated = $store->update(['status' => 1]);;
+	    $updated = $store->update(['status' => 1]);
         
 	    if ($updated) {
 	        return response()->json([

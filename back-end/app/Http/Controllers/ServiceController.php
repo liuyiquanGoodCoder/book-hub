@@ -21,5 +21,30 @@ class ServiceController extends Controller
 		$uid = $this->user->id;
 
 		return Projectrecord::where('from_seller_id', '=', $uid)->get()->toArray();
-	}
+    }
+    
+    public function payservice(Request $request)
+	{
+		$service = Projectrecord::find($request->id);
+		
+		if (!$service) {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, service with id ' . $request->id . ' cannot be found'
+	        ]);
+	    }
+
+	    $updated = $service->update(['status' => 1]);
+        
+	    if ($updated) {
+	        return response()->json([
+	            'success' => true
+	        ]);
+	    } else {
+	        return response()->json([
+	            'success' => false,
+	            'message' => 'Sorry, service could not be paid'
+	        ]);
+        }
+    }
 }
