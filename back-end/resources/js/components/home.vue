@@ -5,6 +5,7 @@
     	<Bookinformation v-if="content=='book'"></Bookinformation>
     	<Sellerservice v-if="content=='service'"></Sellerservice>
     	<Sellerbusiness v-if="content=='sellerbusiness'"></Sellerbusiness>
+    	<Income v-if="content=='income'"></Income>
     </div>
 </template>
 
@@ -14,6 +15,8 @@
     import Bookinformation from '../components/bookmanagement'
     import Sellerservice from '../components/sellerservice'
     import Sellerbusiness from '../components/sellerbusiness'
+    import Income from '../components/income'
+    
 export default {
     data() {
         return {
@@ -25,7 +28,8 @@ export default {
         Storeinformation,
         Bookinformation,
         Sellerservice,
-        Sellerbusiness
+        Sellerbusiness,
+        Income
     },
     mounted(){
     	
