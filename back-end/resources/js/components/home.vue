@@ -7,6 +7,7 @@
     	<Sellerbusiness v-if="content=='sellerbusiness'"></Sellerbusiness>
     	<Income v-if="content=='income'"></Income>
     	<Expenditure v-if="content=='expenditure'"></Expenditure>
+    	<Payrol v-if="content=='payroll'"></Payrol>
     </div>
 </template>
 
@@ -18,6 +19,7 @@
     import Sellerbusiness from '../components/sellerbusiness'
     import Income from '../components/income'
     import Expenditure from '../components/expenditure'
+    import Payrol from '../components/payrol'
     
 export default {
     data() {
@@ -32,7 +34,8 @@ export default {
         Sellerservice,
         Sellerbusiness,
         Income,
-        Expenditure
+        Expenditure,
+        Payrol
     },
     mounted(){
     	

@@ -25310,7 +25310,7 @@ module.exports = "/fonts/vendor/iview/dist/styles/ionicons.eot?2c2ae068be3b089e0
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(17);
-module.exports = __webpack_require__(97);
+module.exports = __webpack_require__(102);
 
 
 /***/ }),
@@ -89218,7 +89218,7 @@ var normalizeComponent = __webpack_require__(1)
 /* script */
 var __vue_script__ = __webpack_require__(60)
 /* template */
-var __vue_template__ = __webpack_require__(96)
+var __vue_template__ = __webpack_require__(101)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -89291,7 +89291,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -89349,6 +89349,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_income___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_income__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_expenditure__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_expenditure___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_expenditure__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_payrol__ = __webpack_require__(96);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_payrol___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_payrol__);
 //
 //
 //
@@ -89361,6 +89363,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+
 
 
 
@@ -89384,7 +89388,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         Sellerservice: __WEBPACK_IMPORTED_MODULE_3__components_sellerservice___default.a,
         Sellerbusiness: __WEBPACK_IMPORTED_MODULE_4__components_sellerbusiness___default.a,
         Income: __WEBPACK_IMPORTED_MODULE_5__components_income___default.a,
-        Expenditure: __WEBPACK_IMPORTED_MODULE_6__components_expenditure___default.a
+        Expenditure: __WEBPACK_IMPORTED_MODULE_6__components_expenditure___default.a,
+        Payrol: __WEBPACK_IMPORTED_MODULE_7__components_payrol___default.a
     },
     mounted: function mounted() {},
 
@@ -89866,7 +89871,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     $this.$emit('url', 'expenditure');
                     break;
                 case 8:
-                    $this.$emit('url', 'financebusiness');
+                    $this.$emit('url', 'sellerbusiness');
                     break;
                 case 9:
                     $this.$emit('url', 'payroll');
@@ -90105,7 +90110,7 @@ var render = function() {
                             "a",
                             {
                               staticClass: "nav-link",
-                              attrs: { href: "/#" },
+                              attrs: { href: "#" },
                               on: {
                                 click: function($event) {
                                   _vm.showContent(8)
@@ -95073,6 +95078,316 @@ if (false) {
 /* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(97)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(99)
+/* template */
+var __vue_template__ = __webpack_require__(100)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-7d35ceb2"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/payrol.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-7d35ceb2", Component.options)
+  } else {
+    hotAPI.reload("data-v-7d35ceb2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(98);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("272aa7da", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d35ceb2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./payrol.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7d35ceb2\",\"scoped\":true,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./payrol.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\na[data-v-7d35ceb2]{\n  font-size: 15px;\n}\np[data-v-7d35ceb2]{\n  font-size: 15px;\n}\ntable[data-v-7d35ceb2]{\n font-size: 15px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      userName: "",
+      token: "",
+      bookInformation: {},
+      manageBook: "show",
+      reload: true
+      //
+
+
+    };
+  },
+  mounted: function mounted() {
+    var userInfo = document.cookie.split(";");
+    //let token = userInfo[0].XSRF-TOKEN;
+    var userFunction = {};
+    if (userInfo[0].split("|")[2]) {
+      userFunction = userInfo[0].split("|");
+    } else {
+      userFunction = userInfo[1].split("|");
+    }
+    var role = userFunction[1];
+    var $this = this;
+    this.userName = userFunction[0];
+    this.token = userFunction[2];
+    this.showBook();
+  },
+
+  methods: {
+    showBook: function showBook() {
+      var $this = this;
+      this.reload = false;
+      axios.get('http://jwt.test/api/showpayroll?token=' + this.token).then(function (response) {
+        console.log(response);
+        if (response.data) {
+          $this.bookInformation = response.data;
+          //console.log($this.bookInformation);
+          $this.reload = true;
+          $(function () {
+            $('#example2').DataTable({
+              "paging": true,
+              "lengthChange": false,
+              "searching": false,
+              "ordering": true,
+              "info": true,
+              "autoWidth": false
+            });
+          });
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+
+});
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.reload
+    ? _c("div", { staticClass: "content-wrapper" }, [
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "container-fluid" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm.manageBook == "show"
+                ? _c("div", { staticClass: "col-12" }, [
+                    _c("div", { staticClass: "card" }, [
+                      _vm._m(0),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-body" }, [
+                        _c(
+                          "table",
+                          {
+                            staticClass: "table table-bordered table-hover",
+                            attrs: { id: "example2" }
+                          },
+                          [
+                            _vm._m(1),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.bookInformation, function(
+                                item,
+                                index
+                              ) {
+                                return _c("tr", [
+                                  _c("td", [_vm._v(_vm._s(item.user_id))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.name))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.wages))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.created_at))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.role))])
+                                ])
+                              })
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                : _vm._e()
+            ])
+          ])
+        ])
+      ])
+    : _vm._e()
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c(
+        "h3",
+        { staticClass: "card-title", staticStyle: { display: "inline-block" } },
+        [_vm._v("Business Table")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Id")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("User Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Wages")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Created Time")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Role")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7d35ceb2", module.exports)
+  }
+}
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -95093,7 +95408,9 @@ var render = function() {
       _vm._v(" "),
       _vm.content == "income" ? _c("Income") : _vm._e(),
       _vm._v(" "),
-      _vm.content == "expenditure" ? _c("Expenditure") : _vm._e()
+      _vm.content == "expenditure" ? _c("Expenditure") : _vm._e(),
+      _vm._v(" "),
+      _vm.content == "payroll" ? _c("Payrol") : _vm._e()
     ],
     1
   )
@@ -95109,7 +95426,7 @@ if (false) {
 }
 
 /***/ }),
-/* 97 */
+/* 102 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
