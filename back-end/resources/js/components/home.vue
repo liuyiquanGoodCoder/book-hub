@@ -10,6 +10,7 @@
     	<Payrol v-if="content=='payroll'"></Payrol>
     	<Storemanagement v-if="content=='storemanagement'"></Storemanagement>
     	<Projectmanagement v-if="content=='projectmanagement'"></Projectmanagement>
+        <Projectrecord v-if="content=='projectrecord'"></Projectrecord>
     </div>
 </template>
 
@@ -24,6 +25,7 @@
     import Payrol from '../components/payrol'
     import Storemanagement from '../components/storemanagement'
     import Projectmanagement from '../components/projectmanagement'
+    import Projectrecord from '../components/projectrecord'
     
 export default {
     data() {
@@ -41,7 +43,8 @@ export default {
         Expenditure,
         Payrol,
         Storemanagement,
-        Projectmanagement
+        Projectmanagement,
+        Projectrecord
     },
     mounted(){
     	
