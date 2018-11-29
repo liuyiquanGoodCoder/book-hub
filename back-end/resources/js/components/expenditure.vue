@@ -10,7 +10,7 @@
             <div class="col-12" v-if="manageBook=='show'">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title" style="display: inline-block;">Income Table</h3>
+                        <h3 class="card-title" style="display: inline-block;">Expenditure Table</h3>
                         <a class="btn btn-info" href="#" @click="addBook" style="float: right;">Add Income</a>
                       </div>
                       <!-- /.card-header -->
@@ -45,7 +45,7 @@
                 <!-- general form elements -->
                   <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Add Income</h3>
+                      <h3 class="card-title">Add Expenditure</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -141,7 +141,7 @@ export default {
       showBook(){
         let $this = this;
         this.reload = false;
-        axios.get('http://jwt.test/api/showincome?token='+this.token)
+        axios.get('http://jwt.test/api/showexpenditure?token='+this.token)
           .then(function (response) {
             console.log(response);
             if(response.data){
@@ -172,7 +172,7 @@ export default {
       },
       submit(){
         let $this = this;
-        axios.post('http://jwt.test/api/addincome',{
+        axios.post('http://jwt.test/api/addexpenditure',{
               "id":$this.user_id,
               "details": $this.details,
               "price": $this.price,
@@ -190,8 +190,6 @@ export default {
             console.log(error);
         });
       }
-
-
     }
 
 }

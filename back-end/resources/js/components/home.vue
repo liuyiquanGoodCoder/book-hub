@@ -6,6 +6,7 @@
     	<Sellerservice v-if="content=='service'"></Sellerservice>
     	<Sellerbusiness v-if="content=='sellerbusiness'"></Sellerbusiness>
     	<Income v-if="content=='income'"></Income>
+    	<Expenditure v-if="content=='expenditure'"></Expenditure>
     </div>
 </template>
 
@@ -16,6 +17,7 @@
     import Sellerservice from '../components/sellerservice'
     import Sellerbusiness from '../components/sellerbusiness'
     import Income from '../components/income'
+    import Expenditure from '../components/expenditure'
     
 export default {
     data() {
@@ -29,7 +31,8 @@ export default {
         Bookinformation,
         Sellerservice,
         Sellerbusiness,
-        Income
+        Income,
+        Expenditure
     },
     mounted(){
     	
