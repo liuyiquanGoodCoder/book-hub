@@ -28,13 +28,13 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in</p>
 
-      <form action="../../index2.html" method="post">
+      
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email">
+          <input type="email" class="form-control" placeholder="Email" id="email">
           <span class="fa fa-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="password" class="form-control" placeholder="Password" id="password">
           <span class="fa fa-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -47,11 +47,11 @@
           </div>
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat" id="submit">Sign In</button>
           </div>
           <!-- /.col -->
         </div>
-      </form>
+      
 
       <p class="mb-1">
         <a href="#">I forgot my password</a>
@@ -71,6 +71,7 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- iCheck -->
 <script src="../../plugins/iCheck/icheck.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
 <script>
   $(function () {
     $('input').iCheck({
@@ -78,7 +79,32 @@
       radioClass   : 'iradio_square-blue',
       increaseArea : '20%' // optional
     })
+    $('#submit').click(function(){
+      alert('aaa');
+      axios.post('http://jwt.test/api/login', {
+            email: $('#email').val(),
+            password: $('#password').val()
+          })
+          .then(function (response) {
+            if(response.data.success == false){
+              
+            }else if(response.data.success == true){
+              var userInfo = {};
+                userInfo.userName = $('#email').val().substring(0, $('#email').val().indexOf('@'));
+                  userInfo.token = response.data.token;
+              document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+              document.cookie = userInfo.userName +'|' +userInfo.token;
+              //window.location.href="/index"
+              
+            }
+          })
+          .catch(function (error) {
+            console.log(error);
+        });
+    });
+
   })
+  
 </script>
 </body>
 </html>

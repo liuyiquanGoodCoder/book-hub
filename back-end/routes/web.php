@@ -12,12 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('/Home/login');
 });
 //home
 //login
-Route::get('/login', function () {
-    return view('/Home/login');
+Route::get('/index', function () {
+    return view('index');
+});
+Route::get('/home', function () {
+    return view('home');
 });
 //seller
 //store management
