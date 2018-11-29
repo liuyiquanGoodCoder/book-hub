@@ -43,8 +43,11 @@ class ApiController extends Controller
             ]);
         }
 
+        $role = User::where('email', $request->email)->select('role')->get();
+
         return response()->json([
             'success' => true,
+            'userrole' => $role,
             'token' => $jwt_token,
         ]);
     }
