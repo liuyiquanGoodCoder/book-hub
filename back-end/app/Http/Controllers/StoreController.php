@@ -43,8 +43,20 @@ class StoreController extends Controller
     {
         $uid = $this->user->id;
 
-		return Storeinfo::where('storeinfos.user_id', '=', $uid)
-            ->get()->toArray();
+		$store = Storeinfo::where('storeinfos.user_id', '=', $uid)
+		->get()->toArray();
+		if($store){
+			return response()->json([
+				'success' => true,
+				'message' => $store,
+			]);
+		} else {
+			return response()->json([
+				'success' => true,
+				'message' => 0
+			]);
+		}
+		
     }
 
     public function update_storeinfo(Request $request)

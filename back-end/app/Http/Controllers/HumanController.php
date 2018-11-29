@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterAuthRequest;
 use App\User;
+use App\Resume;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Carbon\Carbon;
@@ -36,5 +37,31 @@ class HumanController extends Controller
             'success' => true,
             'data' => $user
         ]);
+    }
+
+    public function showresume(Request $request)
+    {
+        return Resume::get();
+    }
+
+    public function addresume(Request $request)
+    {
+        $resume = new Resume();
+        $resume->name = $request->name;
+        $resume->department = $request->department;
+        $resume->score = $request->score;
+        $resume->resume_url = "test";
+        
+        if ($this->user->resumes()->save($resume))
+	        return response()->json([
+	            'success' => true,
+	            'message' => 1
+	        ]);
+	    else
+	        return response()->json([
+	            'success' => true,
+	            'message' => 0
+	        ]);
+
     }
 }
