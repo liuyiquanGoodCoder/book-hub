@@ -12,6 +12,9 @@
     	<Projectmanagement v-if="content=='projectmanagement'"></Projectmanagement>
         <Projectrecord v-if="content=='projectrecord'"></Projectrecord>
         <Allbusiness v-if="content=='allbusiness'"></Allbusiness>
+        <Employee v-if="content=='employee'"></Employee>
+        <Training v-if="content=='training'"></Training>
+        <Resume v-if="content=='resumes'"></Resume>
     </div>
 </template>
 
@@ -28,6 +31,9 @@
     import Projectmanagement from '../components/projectmanagement'
     import Projectrecord from '../components/projectrecord'
     import Allbusiness from '../components/allbusiness'
+    import Employee from '../components/employee'
+    import Training from '../components/training'
+    import Resume from '../components/resume'
     
 export default {
     data() {
@@ -47,7 +53,10 @@ export default {
         Storemanagement,
         Projectmanagement,
         Projectrecord,
-        Allbusiness
+        Allbusiness,
+        Employee,
+        Training,
+        Resume
     },
     mounted(){
     	
