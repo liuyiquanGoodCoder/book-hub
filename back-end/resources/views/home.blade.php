@@ -38,5 +38,7 @@
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- ChartJS 1.0.2 -->
     <script src="plugins/chartjs-old/Chart.min.js"></script>
+    <script src="../../plugins/datatables/jquery.dataTables.js"></script>
+<script src="../../plugins/datatables/dataTables.bootstrap4.js"></script>
 </body>
 </html>

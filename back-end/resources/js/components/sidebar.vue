@@ -119,7 +119,7 @@
       </li>
     </ul>
   </nav>
-           <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="dist/img/library.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -148,7 +148,7 @@
           <li class="nav-item has-treeview" v-if="seller">
             <ul>
                <li class="nav-item">
-                <a href="/storeinfo" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(1)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                   Store Management
@@ -157,7 +157,7 @@
               </li>
 
              <li class="nav-item">
-              <a href="/booksinfo" class="nav-link">
+              <a href="#" class="nav-link" @click="showContent(2)">
                 <i class="nav-icon fa fa-th"></i>
                 <p>
                 Books Management
@@ -165,7 +165,7 @@
               </a>
             </li>
             <li class="nav-item">
-                <a href="/myservices" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(3)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Services
@@ -264,10 +264,8 @@
                   </p>
                 </a>
               </li>
-              
-              
             </ul>
-          </li>
+           </li>
 
           <li class="nav-item" v-if="human">
             <ul>
@@ -346,7 +344,26 @@ export default {
 
 
         }
-    }
+    },
+    methods:{
+      showContent(url){
+        let $this = this;
+        switch(url){
+            
+              case 1:
+                  $this.$emit('url','store');
+                  break;
+              case 2: 
+                  $this.$emit('url','book');
+                  break;
+              case 3: 
+                  $this.$emit('url','service');
+                  break;
+
+          }
+        }
+      } 
+    
 
 }
 </script>
@@ -358,4 +375,6 @@ export default {
   p{
     font-size: 15px;
   }
+  
+  
 </style>

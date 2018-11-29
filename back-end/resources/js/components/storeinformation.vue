@@ -203,8 +203,8 @@ export default {
             if(response.status != '200'){
               
             }else if(response.status == '200'){
-              if(response.data[0]){
-                let data = response.data[0]
+              if(response.data.message[0]){
+                let data = response.data.message[0];
                 $this.canCreate = 'show';
                 $this.storeName = data.sname;
                 $this.location = data.address;
@@ -236,7 +236,7 @@ export default {
           .then(function (response) {
             if(response.status != '200'){
               
-            }else if(response.success == true){
+            }else if(response.data.success == true){
               
                 $this.canCreate = 'show';
               
