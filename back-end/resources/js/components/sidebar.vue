@@ -173,7 +173,7 @@
                 </a>
               </li>
                <li class="nav-item">
-                <a href="/neworders" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(4)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     New Orders
@@ -181,7 +181,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/mybusiness" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(5)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Business
@@ -359,6 +359,12 @@ export default {
               case 3: 
                   $this.$emit('url','service');
                   break;
+              case 4: 
+                  $this.$emit('url','newOrder');
+                  break;
+              case 5: 
+                  $this.$emit('url','sellerbusiness');
+                  break;
 
           }
         }
@@ -375,6 +381,6 @@ export default {
   p{
     font-size: 15px;
   }
-  
+
   
 </style>
