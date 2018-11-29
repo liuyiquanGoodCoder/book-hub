@@ -90,7 +90,18 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::post('addincome', 'AccountingController@addincome');
 	Route::get('showincome', 'AccountingController@showincome');
 
-	
+	//hr: employee management
+	Route::post('addemployee', 'HumanController@addemployee');
+	Route::get('showemployee', 'HumanController@showemployee');
+
+	//hr: resume management
+	Route::post('addresume', 'HumanController@addresume');
+	Route::get('showresume', 'HumanController@showresume');
+
+	//hr: training management
+	Route::post('addtraining', 'HumanController@addtraining');
+	Route::get('showtraining', 'HumanController@showtraining');
+
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	
 	Route::post('addpayment', 'BooksController@addpayment');
