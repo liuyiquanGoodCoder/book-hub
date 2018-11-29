@@ -63,6 +63,10 @@ Route::get('/updateemployeeinfo', function ()
 {
     return view('/HR/updateemployeeinfo');
 });
+Route::get('/updatetraining', function ()
+{
+    return view('/HR/updatetraining');
+});
 //performance
 Route::get('/performance', function ()
 {
