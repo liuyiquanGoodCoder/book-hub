@@ -16,7 +16,7 @@ Vue.use(VueRouter);
 const RouterConfig = {
     routes: [
         // ExampleComponent laravel默认的示例组件
-        { path: '/', component: require('./components/ExampleComponent.vue') },
+        { path: '/', component: require('./components/home.vue') },
     ]
 };
 const router = new VueRouter(RouterConfig);
