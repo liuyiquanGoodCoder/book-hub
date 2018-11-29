@@ -271,7 +271,7 @@
             <ul>
               
               <li class="nav-item">
-                <a href="/employeeinfo" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(14)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Employee Information
@@ -279,7 +279,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/training" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(15)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Training
@@ -287,7 +287,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/resumes" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(15)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Resumes
@@ -388,6 +388,15 @@ export default {
                   break;
               case 13: 
                   $this.$emit('url','allbusiness');
+                  break;
+              case 14: 
+                  $this.$emit('url','employee');
+                  break;
+              case 15: 
+                  $this.$emit('url','training');
+                  break;
+              case 16: 
+                  $this.$emit('url','resumes');
                   break;
 
           }
