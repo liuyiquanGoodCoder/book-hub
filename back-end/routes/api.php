@@ -42,7 +42,7 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::get('show_storeinfo', 'StoreController@show_storeinfo');
 	Route::post('update_storeinfo', 'StoreController@update_storeinfo');
 
-	//finance: project management
+	//m/s: project management
 	Route::post('create_projects', 'ProjectController@create_projects');
 	Route::get('show_projects', 'ProjectController@show_projects');
 	Route::post('update_projects', 'ProjectController@update_projects');
@@ -66,18 +66,22 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	Route::get('showservice', 'ServiceController@showservice');
 	Route::post('payservice', 'ServiceController@payservice');
 
-	//finance: business
+	//m/s: business
 	Route::get('allbusiness', 'ProductController@allbusiness');
 
-	//finance: store management
+	//m/s: store management
 	Route::get('uncheckstore', 'StoreController@uncheck_store');
 	Route::post('checkstore', 'StoreController@check_store');
 
-	//finance: project record management
+	//m/s: project record management
 	Route::post('addrecord', 'ProjectController@addrecord');
 	Route::post('updaterecord', 'ProjectController@updaterecord');
 	Route::post('deleterecord', 'ProjectController@deleterecord');
 	Route::get('showrecord', 'ProjectController@showrecord');
+
+	//a/f: payroll management
+	Route::get('showpayroll', 'AccountingController@showpayroll');
+
 	
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	
