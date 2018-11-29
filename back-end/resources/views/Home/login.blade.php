@@ -80,7 +80,6 @@
       increaseArea : '20%' // optional
     })
     $('#submit').click(function(){
-      alert('aaa');
       axios.post('http://jwt.test/api/login', {
             email: $('#email').val(),
             password: $('#password').val()
@@ -89,11 +88,14 @@
             if(response.data.success == false){
               
             }else if(response.data.success == true){
+              console.log(response);
               var userInfo = {};
                 userInfo.userName = $('#email').val().substring(0, $('#email').val().indexOf('@'));
                   userInfo.token = response.data.token;
+                  console.log(userInfo.token);
+                  userInfo.role = response.data.userrole[0].role;
               document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
-              document.cookie = userInfo.userName +'|' +userInfo.token;
+              document.cookie = userInfo.userName +'|' +userInfo.role+'|'+userInfo.token;
               //window.location.href="/index"
               
             }
