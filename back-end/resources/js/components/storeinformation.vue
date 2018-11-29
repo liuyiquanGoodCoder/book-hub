@@ -192,7 +192,13 @@ export default {
     },
     mounted(){
         let userInfo = document.cookie.split(";");
-        let userFunction = userInfo[0].split("|");
+        let userFunction = {};
+        if(userInfo[0].split("|")[2]){
+           userFunction = userInfo[0].split("|");
+          
+        }else{
+          userFunction = userInfo[1].split("|");
+        }
         let role = userFunction[1];
         let $this = this;
         this.userName = userFunction[0];

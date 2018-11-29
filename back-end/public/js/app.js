@@ -89460,7 +89460,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\na[data-v-5b987ee1]{\n  font-size: 15px;\n}\np[data-v-5b987ee1]{\n  font-size: 15px;\n}\n", ""]);
+exports.push([module.i, "\na[data-v-5b987ee1]{\n  font-size: 15px;\n}\np[data-v-5b987ee1]{\n  font-size: 15px;\n}\n\n\n", ""]);
 
 // exports
 
@@ -90777,7 +90777,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   mounted: function mounted() {
     var userInfo = document.cookie.split(";");
-    var userFunction = userInfo[0].split("|");
+    var userFunction = {};
+    if (userInfo[0].split("|")[2]) {
+      userFunction = userInfo[0].split("|");
+    } else {
+      userFunction = userInfo[1].split("|");
+    }
     var role = userFunction[1];
     var $this = this;
     this.userName = userFunction[0];
@@ -91487,7 +91492,7 @@ exports = module.exports = __webpack_require__(3)(false);
 
 
 // module
-exports.push([module.i, "\na[data-v-37e3bcf7]{\n  font-size: 15px;\n}\np[data-v-37e3bcf7]{\n  font-size: 15px;\n}\n", ""]);
+exports.push([module.i, "\na[data-v-37e3bcf7]{\n  font-size: 15px;\n}\np[data-v-37e3bcf7]{\n  font-size: 15px;\n}\ntable[data-v-37e3bcf7]{\n font-size: 15px;\n}\n", ""]);
 
 // exports
 
@@ -91693,462 +91698,174 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            userName: "",
-            seller: false,
-            finance: false,
-            marking: false,
-            human: false,
-            userImage: ""
-        };
-    },
-    mounted: function mounted() {
-        var userInfo = document.cookie.split(";");
-        //let token = userInfo[0].XSRF-TOKEN;
-        var userFunction = userInfo[0].split("|");
-        var role = userFunction[1];
-        this.userName = userFunction[0];
-        $(function () {
-            $('#example2').DataTable({
-                "paging": true,
-                "lengthChange": false,
-                "searching": false,
-                "ordering": true,
-                "info": true,
-                "autoWidth": false
-            });
-        });
+  data: function data() {
+    return {
+      userName: "",
+      token: "",
+      bookInformation: {},
+      bname: "",
+      author: "",
+      publishYear: "",
+      publisher: "",
+      quantity: "",
+      price: "",
+      isbn: "",
+      img_s: "",
+      img_m: "",
+      img_l: "",
+      id: "",
+      manageBook: "show",
+      reload: true
+    };
+  },
+  mounted: function mounted() {
+    var userInfo = document.cookie.split(";");
+    //let token = userInfo[0].XSRF-TOKEN;
+    var userFunction = {};
+    if (userInfo[0].split("|")[2]) {
+      userFunction = userInfo[0].split("|");
+    } else {
+      userFunction = userInfo[1].split("|");
     }
+    var role = userFunction[1];
+    var $this = this;
+    this.userName = userFunction[0];
+    this.token = userFunction[2];
+    axios.get('http://jwt.test/api/books?token=' + this.token).then(function (response) {
+      console.log(response);
+      if (response.data) {
+        $this.bookInformation = response.data.data;
+        //console.log($this.bookInformation);
+        $(function () {
+          $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false
+          });
+        });
+      }
+    }).catch(function (error) {
+      console.log(error);
+    });
+  },
+
+  methods: {
+    showBook: function showBook() {
+      var $this = this;
+      this.reload = false;
+      axios.get('http://jwt.test/api/books?token=' + this.token).then(function (response) {
+        console.log(response);
+        if (response.data) {
+          $this.bookInformation = response.data.data;
+          //console.log($this.bookInformation);
+          $this.reload = true;
+          $(function () {
+            $('#example2').DataTable({
+              "paging": true,
+              "lengthChange": false,
+              "searching": false,
+              "ordering": true,
+              "info": true,
+              "autoWidth": false
+            });
+          });
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    mangeBook: function mangeBook() {},
+    addBook: function addBook() {
+      this.manageBook = 'create';
+    },
+    cancel: function cancel() {
+      this.manageBook = 'show';
+    },
+    submit: function submit() {
+      var $this = this;
+      axios.post('http://jwt.test/api/addbooks', {
+        "bname": $this.bname,
+        "ISBN": $this.isbn,
+        "author": $this.author,
+        "role": "0",
+        "pub_year": $this.publishYear,
+        "publisher": $this.publisher,
+        "img_s": "testimg_s",
+        "img_m": "testimg_m",
+        "img_l": "testimg_l",
+        "price": $this.price,
+        "quantity": $this.quantity,
+        "token": $this.token
+      }).then(function (response) {
+        if (response.data.success == true) {
+          $this.manageBook = "show";
+          $this.showBook();
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    updateShow: function updateShow(item) {
+      var $this = this;
+      $this.bname = item.bname;
+      $this.author = item.author;
+      $this.publishYear = item.pub_year;
+      $this.publisher = item.publisher;
+      $this.quantity = item.quantity;
+      $this.price = item.price;
+      $this.isbn = item.ISBN;
+      $this.img_s = item.img_s;
+      $this.img_m = item.img_m;
+      $this.img_l = item.img_m;
+      $this.id = item.id;
+      $this.manageBook = "update";
+    },
+    update: function update() {
+      var $this = this;
+      axios.post('http://jwt.test/api/updatebooks', {
+        "id": $this.id,
+        "bname": $this.bname,
+        "ISBN": $this.isbn,
+        "author": $this.author,
+        "role": "0",
+        "pub_year": $this.publishYear,
+        "publisher": $this.publisher,
+        "img_s": $this.img_s,
+        "img_m": $this.img_m,
+        "img_l": $this.img_l,
+        "price": $this.price,
+        "quantity": $this.quantity,
+        "token": $this.token
+      }).then(function (response) {
+        if (response.status != '200') {} else if (response.data.success == true) {
+          $this.manageBook = "show";
+          $this.showBook();
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    deleteBook: function deleteBook(id) {
+      var $this = this;
+      axios.post('http://jwt.test/api/deletebooks', {
+        "id": id,
+        "token": $this.token
+      }).then(function (response) {
+        if (response.data.success == true) {
+          $this.manageBook = "show";
+          $this.showBook();
+        }
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
+  }
+
 });
 
 /***/ }),
@@ -92159,1175 +91876,867 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _vm.reload
+    ? _c("div", { staticClass: "content-wrapper" }, [
+        _c("div", { staticClass: "content" }, [
+          _c("div", { staticClass: "container-fluid" }, [
+            _c("div", { staticClass: "row" }, [
+              _vm.manageBook == "show"
+                ? _c("div", { staticClass: "col-12" }, [
+                    _c("div", { staticClass: "card" }, [
+                      _c("div", { staticClass: "card-header" }, [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "card-title",
+                            staticStyle: { display: "inline-block" }
+                          },
+                          [_vm._v("Book Table")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-info",
+                            staticStyle: { float: "right" },
+                            attrs: { href: "#" },
+                            on: { click: _vm.addBook }
+                          },
+                          [_vm._v("Add Book")]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-body" }, [
+                        _c(
+                          "table",
+                          {
+                            staticClass: "table table-bordered table-hover",
+                            attrs: { id: "example2" }
+                          },
+                          [
+                            _vm._m(0),
+                            _vm._v(" "),
+                            _c(
+                              "tbody",
+                              _vm._l(_vm.bookInformation, function(
+                                item,
+                                index
+                              ) {
+                                return _c("tr", [
+                                  _c("td", [_vm._v(_vm._s(item.bname))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.ISBN))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.author))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.pub_year))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.publisher))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.price))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.quantity))]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _c("div", { staticClass: "btn-group" }, [
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "btn btn-info",
+                                          attrs: { href: "#" },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.updateShow(item)
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Manage")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c(
+                                        "a",
+                                        {
+                                          staticClass: "btn btn-danger",
+                                          attrs: { href: "#" },
+                                          on: {
+                                            click: function($event) {
+                                              _vm.deleteBook(item.id)
+                                            }
+                                          }
+                                        },
+                                        [_vm._v("Delete")]
+                                      )
+                                    ])
+                                  ])
+                                ])
+                              })
+                            )
+                          ]
+                        )
+                      ])
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.manageBook == "create"
+                ? _c("div", { staticClass: "col-12" }, [
+                    _c("div", { staticClass: "card card-primary" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Book Name")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.bname,
+                                expression: "bname"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter name"
+                            },
+                            domProps: { value: _vm.bname },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.bname = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("ISBN")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.isbn,
+                                expression: "isbn"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter ISBN"
+                            },
+                            domProps: { value: _vm.isbn },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.isbn = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Author")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.author,
+                                expression: "author"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Author"
+                            },
+                            domProps: { value: _vm.author },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.author = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Publish Year")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.publishYear,
+                                expression: "publishYear"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Publish Year"
+                            },
+                            domProps: { value: _vm.publishYear },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.publishYear = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Publisher")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.publisher,
+                                expression: "publisher"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Publisher"
+                            },
+                            domProps: { value: _vm.publisher },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.publisher = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _vm._m(4),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Quantity")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.quantity,
+                                expression: "quantity"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Quantity"
+                            },
+                            domProps: { value: _vm.quantity },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.quantity = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Price")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.price,
+                                expression: "price"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Price"
+                            },
+                            domProps: { value: _vm.price },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.price = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: { type: "submit" },
+                              on: { click: _vm.submit }
+                            },
+                            [_vm._v("Submit")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger",
+                              attrs: { type: "submit" },
+                              on: { click: _vm.cancel }
+                            },
+                            [_vm._v("Cancel")]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "card-footer",
+                        staticStyle: { display: "none" }
+                      })
+                    ])
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.manageBook == "update"
+                ? _c("div", { staticClass: "col-lg-6" }, [
+                    _c("div", { staticClass: "card card-primary" }, [
+                      _vm._m(5),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "card-body" }, [
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Book Name")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.bname,
+                                expression: "bname"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter name"
+                            },
+                            domProps: { value: _vm.bname },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.bname = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("ISBN")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.isbn,
+                                expression: "isbn"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter ISBN"
+                            },
+                            domProps: { value: _vm.isbn },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.isbn = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Author")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.author,
+                                expression: "author"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Author"
+                            },
+                            domProps: { value: _vm.author },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.author = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Publish Year")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.publishYear,
+                                expression: "publishYear"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Publish Year"
+                            },
+                            domProps: { value: _vm.publishYear },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.publishYear = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Publisher")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.publisher,
+                                expression: "publisher"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Publisher"
+                            },
+                            domProps: { value: _vm.publisher },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.publisher = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("image url small")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.img_s,
+                                expression: "img_s"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter image url small"
+                            },
+                            domProps: { value: _vm.img_s },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.img_s = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("image url middle")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.img_m,
+                                expression: "img_m"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter image url middle"
+                            },
+                            domProps: { value: _vm.img_m },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.img_m = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("image url large")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.img_l,
+                                expression: "img_l"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter image url large"
+                            },
+                            domProps: { value: _vm.img_l },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.img_l = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Quantity")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.quantity,
+                                expression: "quantity"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Quantity"
+                            },
+                            domProps: { value: _vm.quantity },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.quantity = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Price")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.price,
+                                expression: "price"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Price"
+                            },
+                            domProps: { value: _vm.price },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.price = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              attrs: { type: "submit" },
+                              on: { click: _vm.update }
+                            },
+                            [_vm._v("Submit")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-danger",
+                              attrs: { type: "submit" },
+                              on: { click: _vm.cancel }
+                            },
+                            [_vm._v("Cancel")]
+                          )
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", {
+                        staticClass: "card-footer",
+                        staticStyle: { display: "none" }
+                      })
+                    ])
+                  ])
+                : _vm._e()
+            ])
+          ])
+        ])
+      ])
+    : _vm._e()
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-wrapper" }, [
-      _c("div", { staticClass: "content-header" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row mb-2" }, [
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("h1", { staticClass: "m-0 text-dark" }, [
-                _vm._v("Starter Page")
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-sm-6" }, [
-              _c("ol", { staticClass: "breadcrumb float-sm-right" }, [
-                _c("li", { staticClass: "breadcrumb-item" }, [
-                  _c("a", { attrs: { href: "#" } }, [_vm._v("Home")])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "breadcrumb-item active" }, [
-                  _vm._v("Starter Page")
-                ])
-              ])
-            ])
-          ])
-        ])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", [_vm._v("Book Name")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("ISBN")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Author")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Publish Year")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Publisher")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Price($)")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Quantity")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Operation")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Add Book")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("image url small")
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "content" }, [
-        _c("div", { staticClass: "container-fluid" }, [
-          _c("div", { staticClass: "row" }, [
-            _c("div", { staticClass: "col-12" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("h3", { staticClass: "card-title" }, [
-                    _vm._v("Hover Data Table")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body" }, [
-                  _c(
-                    "table",
-                    {
-                      staticClass: "table table-bordered table-hover",
-                      attrs: { id: "example2" }
-                    },
-                    [
-                      _c("thead", [
-                        _c("tr", [
-                          _c("th", [_vm._v("Rendering engine")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Browser")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Platform(s)")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Engine version")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("CSS grade")])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tbody", [
-                        _c("tr", [
-                          _c("td", [_vm._v("Trident")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "Internet\n                  Explorer 4.0\n                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(" 4")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("X")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Trident")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "Internet\n                  Explorer 5.0\n                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Trident")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "Internet\n                  Explorer 5.5\n                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("5.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Trident")]),
-                          _vm._v(" "),
-                          _c("td", [
-                            _vm._v(
-                              "Internet\n                  Explorer 6\n                "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("6")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Trident")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Internet Explorer 7")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win XP SP2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("7")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Trident")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("AOL browser (AOL desktop)")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win XP")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("6")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Firefox 1.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.7")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Firefox 1.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Firefox 2.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Firefox 3.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 2k+ / OSX.3+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.9")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Camino 1.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Camino 1.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OSX.3+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Netscape 7.2")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / Mac OS 8.6-9.2")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.7")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Netscape Browser 8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98SE+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.7")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Netscape Navigator 9")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.2")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.2")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.4")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.4")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.6")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.6")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.7")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.7")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mozilla 1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Seamonkey 1.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 98+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Gecko")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Epiphany 2.20")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Gnome")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Webkit")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Safari 1.2")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OSX.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("125.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Webkit")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Safari 1.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OSX.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("312.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Webkit")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Safari 2.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OSX.4+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("419.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Webkit")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Safari 3.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OSX.4+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("522.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Webkit")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OmniWeb 5.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("OSX.4+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("420")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Webkit")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("iPod Touch / iPhone")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("iPod")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("420.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Webkit")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("S60")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("S60")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("413")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera 7.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.1+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera 7.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera 8.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera 8.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.2+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera 9.0")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 95+ / OSX.3+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera 9.2")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 88+ / OSX.3+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera 9.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Win 88+ / OSX.3+")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Opera for Wii")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Wii")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Nokia N800")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("N800")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Presto")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Nintendo DS browser")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Nintendo DS")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("8.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C/A"), _c("sup", [_vm._v("1")])])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("KHTML")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Konqureror 3.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("KDE 3.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("3.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("KHTML")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Konqureror 3.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("KDE 3.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("3.3")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("KHTML")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Konqureror 3.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("KDE 3.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("3.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Tasman")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Internet Explorer 4.5")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mac OS 8-9")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("X")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Tasman")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Internet Explorer 5.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mac OS 7.6-9")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Tasman")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Internet Explorer 5.2")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Mac OS 8-X")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Misc")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("NetFront 3.1")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Embedded devices")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Misc")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("NetFront 3.4")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Embedded devices")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("A")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Misc")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Dillo 0.8")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Embedded devices")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("X")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Misc")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Links")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Text only")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("X")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Misc")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Lynx")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Text only")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("X")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Misc")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("IE Mobile")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("Windows Mobile 6")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Misc")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("PSP browser")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("PSP")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("C")])
-                        ]),
-                        _vm._v(" "),
-                        _c("tr", [
-                          _c("td", [_vm._v("Other browsers")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("All others")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("-")]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v("U")])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("tfoot", [
-                        _c("tr", [
-                          _c("th", [_vm._v("Rendering engine")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Browser")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Platform(s)")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("Engine version")]),
-                          _vm._v(" "),
-                          _c("th", [_vm._v("CSS grade")])
-                        ])
-                      ])
-                    ]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-6" }, [
-              _c("div", { staticClass: "card" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("h3", { staticClass: "card-title" }, [
-                    _vm._v("Recently Added Products")
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-tools" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-tool",
-                        attrs: { type: "button", "data-widget": "collapse" }
-                      },
-                      [_c("i", { staticClass: "fa fa-minus" })]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-tool",
-                        attrs: { type: "button", "data-widget": "remove" }
-                      },
-                      [_c("i", { staticClass: "fa fa-times" })]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-body p-0" }, [
-                  _c(
-                    "ul",
-                    {
-                      staticClass:
-                        "products-list product-list-in-card pl-2 pr-2"
-                    },
-                    [
-                      _c("li", { staticClass: "item" }, [
-                        _c("div", { staticClass: "product-img" }, [
-                          _c("img", {
-                            staticClass: "img-size-50",
-                            attrs: {
-                              src: "dist/img/default-150x150.png",
-                              alt: "Product Image"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "product-info" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "product-title",
-                              attrs: { href: "javascript:void(0)" }
-                            },
-                            [
-                              _vm._v("Samsung TV\n                      "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "badge badge-warning float-right"
-                                },
-                                [_vm._v("$1800")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "product-description" }, [
-                            _vm._v(
-                              '\n                      Samsung 32" 1080p 60Hz LED Smart HDTV.\n                    '
-                            )
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "item" }, [
-                        _c("div", { staticClass: "product-img" }, [
-                          _c("img", {
-                            staticClass: "img-size-50",
-                            attrs: {
-                              src: "dist/img/default-150x150.png",
-                              alt: "Product Image"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "product-info" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "product-title",
-                              attrs: { href: "javascript:void(0)" }
-                            },
-                            [
-                              _vm._v("Bicycle\n                      "),
-                              _c(
-                                "span",
-                                { staticClass: "badge badge-info float-right" },
-                                [_vm._v("$700")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "product-description" }, [
-                            _vm._v(
-                              "\n                      26\" Mongoose Dolomite Men's 7-speed, Navy Blue.\n                    "
-                            )
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "item" }, [
-                        _c("div", { staticClass: "product-img" }, [
-                          _c("img", {
-                            staticClass: "img-size-50",
-                            attrs: {
-                              src: "dist/img/default-150x150.png",
-                              alt: "Product Image"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "product-info" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "product-title",
-                              attrs: { href: "javascript:void(0)" }
-                            },
-                            [
-                              _vm._v("\n                      Xbox One "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "badge badge-danger float-right"
-                                },
-                                [
-                                  _vm._v(
-                                    "\n                      $350\n                    "
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "product-description" }, [
-                            _vm._v(
-                              "\n                      Xbox One Console Bundle with Halo Master Chief Collection.\n                    "
-                            )
-                          ])
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "item" }, [
-                        _c("div", { staticClass: "product-img" }, [
-                          _c("img", {
-                            staticClass: "img-size-50",
-                            attrs: {
-                              src: "dist/img/default-150x150.png",
-                              alt: "Product Image"
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "product-info" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "product-title",
-                              attrs: { href: "javascript:void(0)" }
-                            },
-                            [
-                              _vm._v("PlayStation 4\n                      "),
-                              _c(
-                                "span",
-                                {
-                                  staticClass: "badge badge-success float-right"
-                                },
-                                [_vm._v("$399")]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "product-description" }, [
-                            _vm._v(
-                              "\n                      PlayStation 4 500GB Console (PS4)\n                    "
-                            )
-                          ])
-                        ])
-                      ])
-                    ]
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "card-footer text-center" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "uppercase",
-                      attrs: { href: "javascript:void(0)" }
-                    },
-                    [_vm._v("View All Products")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-lg-6" }, [
-              _c("div", { staticClass: "card card-primary" }, [
-                _c("div", { staticClass: "card-header" }, [
-                  _c("h3", { staticClass: "card-title" }, [
-                    _vm._v("Create Book")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("form", { attrs: { role: "form" } }, [
-                  _c("div", { staticClass: "card-body" }, [
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Book Name")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter name"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("ISBN")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter location"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Author")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter email"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Publish Year")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter phone"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Publisher")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter phone"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("image url small")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter phone"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("image url middle")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter phone"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("image url large")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter phone"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Quantity")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter phone"
-                        }
-                      })
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "form-group" }, [
-                      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
-                        _vm._v("Price")
-                      ]),
-                      _vm._v(" "),
-                      _c("input", {
-                        staticClass: "form-control",
-                        attrs: {
-                          type: "text",
-                          id: "exampleInputEmail1",
-                          placeholder: "Enter phone"
-                        }
-                      })
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "card-footer" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "submit" }
-                      },
-                      [_vm._v("Submit")]
-                    )
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "exampleInputEmail1",
+          placeholder: "Enter phone"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("image url middle")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "exampleInputEmail1",
+          placeholder: "Enter phone"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group" }, [
+      _c("label", { attrs: { for: "exampleInputEmail1" } }, [
+        _vm._v("image url large")
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "form-control",
+        attrs: {
+          type: "text",
+          id: "exampleInputEmail1",
+          placeholder: "Enter phone"
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Update Book")])
     ])
   }
 ]
