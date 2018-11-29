@@ -233,7 +233,7 @@
            <li class="nav-item" v-if="marking">
             <ul>
               <li class="nav-item">
-                <a href="/stores" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(10)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Store management
@@ -241,7 +241,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/projects" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(11)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Projects Management
@@ -249,7 +249,7 @@
                 </a>
               </li>
                <li class="nav-item">
-                <a href="/projectrecords" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(12)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Project Records
@@ -257,7 +257,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/business" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(13)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Business
@@ -376,6 +376,18 @@ export default {
                   break;
               case 9: 
                   $this.$emit('url','payroll');
+                  break;
+              case 10: 
+                  $this.$emit('url','storemanagement');
+                  break;
+              case 11: 
+                  $this.$emit('url','projectmanagement');
+                  break;
+              case 12: 
+                  $this.$emit('url','projectrecord');
+                  break;
+              case 13: 
+                  $this.$emit('url','allbusiness');
                   break;
 
           }
