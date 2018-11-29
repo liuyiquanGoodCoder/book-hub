@@ -151,7 +151,7 @@
                 <a href="#" class="nav-link" @click="showContent(1)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
-                  Store Management
+                  Store Information
                   </p>
                 </a>
               </li>
@@ -196,7 +196,7 @@
             <ul>
               
               <li class="nav-item">
-                <a href="/income" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(6)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Income Records
@@ -204,7 +204,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/expenditure" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(7)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Expenditure Records
@@ -212,7 +212,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/mybusiness" class="nav-link">
+                <a href="/#" class="nav-link" @click="showContent(8)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Business
@@ -220,7 +220,7 @@
                 </a>
               </li>
                <li class="nav-item">
-                <a href="/payroll" class="nav-link">
+                <a href="#" class="nav-link" @click="showContent(9)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Payroll
@@ -364,6 +364,18 @@ export default {
                   break;
               case 5: 
                   $this.$emit('url','sellerbusiness');
+                  break;
+              case 6: 
+                  $this.$emit('url','income');
+                  break;
+              case 7: 
+                  $this.$emit('url','expenditure');
+                  break;
+              case 8: 
+                  $this.$emit('url','financebusiness');
+                  break;
+              case 9: 
+                  $this.$emit('url','payroll');
                   break;
 
           }
