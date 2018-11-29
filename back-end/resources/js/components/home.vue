@@ -11,6 +11,7 @@
     	<Storemanagement v-if="content=='storemanagement'"></Storemanagement>
     	<Projectmanagement v-if="content=='projectmanagement'"></Projectmanagement>
         <Projectrecord v-if="content=='projectrecord'"></Projectrecord>
+        <Allbusiness v-if="content=='allbusiness'"></Allbusiness>
     </div>
 </template>
 
@@ -26,6 +27,7 @@
     import Storemanagement from '../components/storemanagement'
     import Projectmanagement from '../components/projectmanagement'
     import Projectrecord from '../components/projectrecord'
+    import Allbusiness from '../components/allbusiness'
     
 export default {
     data() {
@@ -44,7 +46,8 @@ export default {
         Payrol,
         Storemanagement,
         Projectmanagement,
-        Projectrecord
+        Projectrecord,
+        Allbusiness
     },
     mounted(){
     	
