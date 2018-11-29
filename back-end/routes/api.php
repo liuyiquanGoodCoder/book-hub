@@ -82,6 +82,10 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 	//a/f: payroll management
 	Route::get('showpayroll', 'AccountingController@showpayroll');
 
+	//a/f: expenditure management
+	Route::post('addexpenditure', 'AccountingController@addexpenditure');
+	Route::get('showexpenditure', 'AccountingController@showexpenditure');
+
 	
 	Route::post('updateuserinfo', 'ApiController@updateuserinfo');
 	

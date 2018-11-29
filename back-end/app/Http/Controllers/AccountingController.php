@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Payroll;
+use App\Expenditure;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Carbon\Carbon;
@@ -23,5 +24,30 @@ class AccountingController extends Controller
         ->select('payrolls.*', 'users.name', 'users.role')
         ->get()->toArray();
 
-	}
+    }
+    
+    public function addexpenditure (Request $request)
+	{
+		$expenditures = new Expenditure();
+		$expenditures->tags = $request->tags;
+		$expenditures->details = $request->details;
+        $expenditures->price = $request->price;
+
+		if ($this->user->expenditures()->save($expenditures))
+	        return response()->json([
+	            'success' => true,
+	            'message' => 1
+	        ]);
+	    else
+	        return response()->json([
+	            'success' => true,
+	            'message' => 0
+	        ]);
+    }
+
+    public function showexpenditure(Request $request)
+    {
+        return Expenditure::get()->toArray();
+    }
+
 }
