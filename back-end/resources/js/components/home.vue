@@ -1,6 +1,7 @@
 <template>
 	<div class="wrapper">
     	<Sidebar @url="showContent"></Sidebar>
+        <Chart v-if="content=='chart'"></Chart>
     	<Storeinformation v-if="content=='store'"></Storeinformation>
     	<Bookinformation v-if="content=='book'"></Bookinformation>
     	<Sellerservice v-if="content=='service'"></Sellerservice>
@@ -20,6 +21,7 @@
 
 <script>
     import Sidebar from '../components/sidebar'
+    import Chart from '../components/charts'
     import Storeinformation from '../components/storeinformation'
     import Bookinformation from '../components/bookmanagement'
     import Sellerservice from '../components/sellerservice'
@@ -38,11 +40,12 @@
 export default {
     data() {
         return {
-            content:'store',
+            content:'chart',
         }
     },
     components: {
         Sidebar,
+        Chart,
         Storeinformation,
         Bookinformation,
         Sellerservice,
