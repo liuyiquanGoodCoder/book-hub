@@ -96,7 +96,7 @@
                   userInfo.role = response.data.userrole[0].role;
               document.cookie = name + '=;  expires=Thu, 01 Jan 1970 00:00:01 GMT;'
               document.cookie = userInfo.userName +'|' +userInfo.role+'|'+userInfo.token;
-              //window.location.href="/index"
+              window.location.href="/home"
               
             }
           })
