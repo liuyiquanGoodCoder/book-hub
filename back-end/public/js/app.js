@@ -96311,46 +96311,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -96412,74 +96372,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(error);
       });
     },
-    addBook: function addBook() {
-      this.manageBook = 'create';
-    },
-    cancel: function cancel() {
-      this.manageBook = 'show';
-    },
-    submit: function submit() {
+    check: function check(id) {
       var $this = this;
-      axios.post('http://jwt.test/api/uncheckstore', {
-        "id": $this.from_seller_id,
-        "from_seller_id": $this.from_seller_id,
-        "details": $this.details,
-        "price": $this.price,
-        "created_at": $this.created_at,
-        "status": $this.status,
-        "token": $this.token
-      }).then(function (response) {
-        if (response.data.success == true) {
-          $this.manageBook = "show";
-          $this.showBook();
-        }
-      }).catch(function (error) {
-        console.log(error);
-      });
-    },
-    updateShow: function updateShow(item) {
-      var $this = this;
-      $this.bname = item.bname;
-      $this.author = item.author;
-      $this.publishYear = item.pub_year;
-      $this.publisher = item.publisher;
-      $this.quantity = item.quantity;
-      $this.price = item.price;
-      $this.isbn = item.ISBN;
-      $this.img_s = item.img_s;
-      $this.img_m = item.img_m;
-      $this.img_l = item.img_m;
-      $this.id = item.id;
-      $this.manageBook = "update";
-    },
-    update: function update() {
-      var $this = this;
-      axios.post('http://jwt.test/api/updatebooks', {
-        "id": $this.id,
-        "bname": $this.bname,
-        "ISBN": $this.isbn,
-        "author": $this.author,
-        "role": "0",
-        "pub_year": $this.publishYear,
-        "publisher": $this.publisher,
-        "img_s": $this.img_s,
-        "img_m": $this.img_m,
-        "img_l": $this.img_l,
-        "price": $this.price,
-        "quantity": $this.quantity,
-        "token": $this.token
-      }).then(function (response) {
-        if (response.status != '200') {} else if (response.data.success == true) {
-          $this.manageBook = "show";
-          $this.showBook();
-        }
-      }).catch(function (error) {
-        console.log(error);
-      });
-    },
-    deleteBook: function deleteBook(id) {
-      var $this = this;
-      axios.post('http://jwt.test/api/deletebooks', {
+      axios.post('http://jwt.test/api/checkstore', {
         "id": id,
         "token": $this.token
       }).then(function (response) {
@@ -96540,220 +96435,32 @@ var render = function() {
                                   _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(item.details))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.created_at))])
+                                  _c("td", [_vm._v(_vm._s(item.created_at))]),
+                                  _vm._v(" "),
+                                  _c("td", [
+                                    _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-danger",
+                                        class: [
+                                          item.status == 0 ? "" : "disabled"
+                                        ],
+                                        attrs: { href: "#" },
+                                        on: {
+                                          click: function($event) {
+                                            _vm.check(item.id)
+                                          }
+                                        }
+                                      },
+                                      [_vm._v("Check")]
+                                    )
+                                  ])
                                 ])
                               })
                             )
                           ]
                         )
                       ])
-                    ])
-                  ])
-                : _vm._e(),
-              _vm._v(" "),
-              _vm.manageBook == "create"
-                ? _c("div", { staticClass: "col-12" }, [
-                    _c("div", { staticClass: "card card-primary" }, [
-                      _vm._m(2),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "card-body" }, [
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Store Name")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.sname,
-                                expression: "sname"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter Store Name"
-                            },
-                            domProps: { value: _vm.sname },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.sname = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Address")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.address,
-                                expression: "address"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter address"
-                            },
-                            domProps: { value: _vm.address },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.address = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Phone Number")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.phone_number,
-                                expression: "phone_number"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter Phone Number"
-                            },
-                            domProps: { value: _vm.phone_number },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.phone_number = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Email")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.email,
-                                expression: "email"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter email"
-                            },
-                            domProps: { value: _vm.email },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.email = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Details")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.details,
-                                expression: "details"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter details"
-                            },
-                            domProps: { value: _vm.details },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.details = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-primary",
-                              attrs: { type: "submit" },
-                              on: { click: _vm.submit }
-                            },
-                            [_vm._v("Submit")]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "button",
-                            {
-                              staticClass: "btn btn-danger",
-                              attrs: { type: "submit" },
-                              on: { click: _vm.cancel }
-                            },
-                            [_vm._v("Cancel")]
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("div", {
-                        staticClass: "card-footer",
-                        staticStyle: { display: "none" }
-                      })
                     ])
                   ])
                 : _vm._e()
@@ -96792,16 +96499,10 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Details")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Create Time")])
+        _c("th", [_vm._v("Create Time")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Operation")])
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Add Store")])
     ])
   }
 ]

@@ -24,6 +24,7 @@
                             <th>Phone Number</th>
                             <th>Details</th>
                             <th>Create Time</th>
+                            <th>Operation</th>
                           </tr>
                           </thead>
                           <tbody>
@@ -34,6 +35,9 @@
                               <td>{{item.phone_number}}</td>
                               <td>{{item.details}}</td>
                               <td>{{item.created_at}}</td>
+                              <td>
+                                <a class="btn btn-danger" href="#" @click="check(item.id)" v-bind:class="[item.status == 0?'':'disabled']">Check</a>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
@@ -43,50 +47,6 @@
               <!-- /.card -->
             </div>
                 <!-- /.col-md-6 -->
-              <div class="col-12" v-if="manageBook=='create'">
-                <!-- general form elements -->
-                  <div class="card card-primary">
-                    <div class="card-header">
-                      <h3 class="card-title">Add Store</h3>
-                    </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
-                      <div class="card-body">
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Store Name</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Store Name" v-model="sname">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Address</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter address" v-model="address">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Phone Number</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Phone Number" v-model="phone_number">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Email</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" v-model="email">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Details</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter details" v-model="details">
-                        </div>
-                        <div class="form-group">
-                          <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
-                        <button type="submit" class="btn btn-danger" @click="cancel">Cancel</button>
-                        </div>
-                        
-                      </div>
-                      <!-- /.card-body -->
-
-                      <div class="card-footer" style="display: none;">
-                        
-                      </div>
-                    
-                  </div>                       
-                
-              </div>
           </div>
           <!-- /.col-md-6 -->
             
@@ -166,80 +126,9 @@ export default {
             console.log(error);
         });
       },
-      addBook(){
-        this.manageBook = 'create';
-      },
-      cancel(){
-        this.manageBook = 'show';
-      },
-      submit(){
+      check(id){
         let $this = this;
-        axios.post('http://jwt.test/api/uncheckstore',{
-              "id":$this.from_seller_id,
-              "from_seller_id": $this.from_seller_id,
-              "details": $this.details,
-              "price": $this.price,
-              "created_at": $this.created_at,
-              "status": $this.status,
-              "token": $this.token
-          })
-          .then(function (response) {
-            if(response.data.success == true){
-                $this.manageBook = "show";
-                $this.showBook(); 
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-        });
-      },
-      updateShow(item){
-        let $this = this;
-        $this.bname=item.bname;
-        $this.author=item.author;
-        $this.publishYear=item.pub_year;
-        $this.publisher=item.publisher;
-        $this.quantity=item.quantity;
-        $this.price=item.price;
-        $this.isbn=item.ISBN;
-        $this.img_s=item.img_s;
-        $this.img_m=item.img_m;
-        $this.img_l=item.img_m;
-        $this.id = item.id;
-        $this.manageBook = "update";
-      },
-      update(){
-        let $this = this;
-        axios.post('http://jwt.test/api/updatebooks',{
-              "id": $this.id,
-              "bname": $this.bname,
-              "ISBN": $this.isbn,
-              "author": $this.author,
-              "role": "0",
-              "pub_year": $this.publishYear,
-              "publisher": $this.publisher,
-              "img_s": $this.img_s,
-              "img_m": $this.img_m,
-              "img_l": $this.img_l,
-              "price": $this.price,
-              "quantity": $this.quantity,
-              "token": $this.token
-          })
-          .then(function (response) {
-            if(response.status != '200'){
-              
-            }else if(response.data.success == true){
-                $this.manageBook = "show";
-                $this.showBook();              
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-        });
-      },
-      deleteBook(id){
-        let $this = this;
-        axios.post('http://jwt.test/api/deletebooks',{
+        axios.post('http://jwt.test/api/checkstore',{
               "id":id,
               "token": $this.token
           })
@@ -252,7 +141,7 @@ export default {
           .catch(function (error) {
             console.log(error);
         });
-      },
+      }
 
 
     }
