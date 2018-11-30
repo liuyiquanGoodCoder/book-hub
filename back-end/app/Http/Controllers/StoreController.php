@@ -80,8 +80,7 @@ class StoreController extends Controller
 	//finance-store management
 	public function uncheck_store()
 	{
-		return Storeinfo::where('status', '=', '0')
-			->paginate(15)
+		return Storeinfo::paginate(15)
 			->toArray();
 	}
 
