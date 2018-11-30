@@ -287,7 +287,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link" @click="showContent(15)">
+                <a href="#" class="nav-link" @click="showContent(16)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     Resumes

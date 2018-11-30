@@ -90373,7 +90373,7 @@ var render = function() {
                               attrs: { href: "#" },
                               on: {
                                 click: function($event) {
-                                  _vm.showContent(15)
+                                  _vm.showContent(16)
                                 }
                               }
                             },
@@ -99591,16 +99591,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -99613,11 +99603,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       //
       id: "",
       user_id: "",
-      details: "",
-      price: "",
-      created_at: "",
-      updated_at: "",
-      tags: ""
+      department: "",
+      name: "",
+      score: ""
 
     };
   },
@@ -99640,8 +99628,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     showBook: function showBook() {
       var $this = this;
+      this.id = "";
+      this.user_id = "";
+      this.department = "";
+      this.score = "";
       this.reload = false;
-      axios.get('http://jwt.test/api/showincome?token=' + this.token).then(function (response) {
+      axios.get('http://jwt.test/api/showresume?token=' + this.token).then(function (response) {
         console.log(response);
         if (response.data) {
           $this.bookInformation = response.data;
@@ -99667,15 +99659,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     cancel: function cancel() {
       this.manageBook = 'show';
+      this.showBook();
     },
     submit: function submit() {
       var $this = this;
-      axios.post('http://jwt.test/api/addincome', {
-        "id": $this.user_id,
-        "details": $this.details,
-        "price": $this.price,
-        "created_at": $this.created_at,
-        "tags": $this.tags,
+      axios.post('http://jwt.test/api/addresume', {
+        "name": $this.name,
+        "department": $this.department,
+        "score": $this.score,
         "token": $this.token
       }).then(function (response) {
         if (response.data.success == true) {
@@ -99713,7 +99704,7 @@ var render = function() {
                             staticClass: "card-title",
                             staticStyle: { display: "inline-block" }
                           },
-                          [_vm._v("Income Table")]
+                          [_vm._v("Resume Table")]
                         ),
                         _vm._v(" "),
                         _c(
@@ -99724,7 +99715,7 @@ var render = function() {
                             attrs: { href: "#" },
                             on: { click: _vm.addBook }
                           },
-                          [_vm._v("Add Income")]
+                          [_vm._v("Add Resume")]
                         )
                       ]),
                       _vm._v(" "),
@@ -99745,15 +99736,13 @@ var render = function() {
                                 index
                               ) {
                                 return _c("tr", [
-                                  _c("td", [_vm._v(_vm._s(item.user_id))]),
+                                  _c("td", [_vm._v(_vm._s(item.name))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.price))]),
+                                  _c("td", [_vm._v(_vm._s(item.department))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.created_at))]),
+                                  _c("td", [_vm._v(_vm._s(item.score))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.tags))]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.details))])
+                                  _c("td", [_vm._v(_vm._s(item.created_at))])
                                 ])
                               })
                             )
@@ -99774,7 +99763,7 @@ var render = function() {
                           _c(
                             "label",
                             { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("User")]
+                            [_vm._v("Name")]
                           ),
                           _vm._v(" "),
                           _c("input", {
@@ -99782,23 +99771,23 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.user_id,
-                                expression: "user_id"
+                                value: _vm.name,
+                                expression: "name"
                               }
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
                               id: "exampleInputEmail1",
-                              placeholder: "Enter User"
+                              placeholder: "Enter name"
                             },
-                            domProps: { value: _vm.user_id },
+                            domProps: { value: _vm.name },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.user_id = $event.target.value
+                                _vm.name = $event.target.value
                               }
                             }
                           })
@@ -99808,7 +99797,7 @@ var render = function() {
                           _c(
                             "label",
                             { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Price")]
+                            [_vm._v("Department")]
                           ),
                           _vm._v(" "),
                           _c("input", {
@@ -99816,23 +99805,23 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.price,
-                                expression: "price"
+                                value: _vm.department,
+                                expression: "department"
                               }
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
                               id: "exampleInputEmail1",
-                              placeholder: "Enter price"
+                              placeholder: "Enter department"
                             },
-                            domProps: { value: _vm.price },
+                            domProps: { value: _vm.department },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.price = $event.target.value
+                                _vm.department = $event.target.value
                               }
                             }
                           })
@@ -99842,7 +99831,7 @@ var render = function() {
                           _c(
                             "label",
                             { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Created At")]
+                            [_vm._v("score")]
                           ),
                           _vm._v(" "),
                           _c("input", {
@@ -99850,91 +99839,23 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.created_at,
-                                expression: "created_at"
+                                value: _vm.score,
+                                expression: "score"
                               }
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
                               id: "exampleInputEmail1",
-                              placeholder: "Enter created_at"
+                              placeholder: "Enter score"
                             },
-                            domProps: { value: _vm.created_at },
+                            domProps: { value: _vm.score },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.created_at = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Details")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.details,
-                                expression: "details"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter details"
-                            },
-                            domProps: { value: _vm.details },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.details = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Tags")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.tags,
-                                expression: "tags"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter Tags"
-                            },
-                            domProps: { value: _vm.tags },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.tags = $event.target.value
+                                _vm.score = $event.target.value
                               }
                             }
                           })
@@ -99983,15 +99904,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("User")]),
+        _c("th", [_vm._v("name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Sum")]),
+        _c("th", [_vm._v("Department")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Time")]),
+        _c("th", [_vm._v("Score")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Tag")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Details")])
+        _c("th", [_vm._v("Created Time")])
       ])
     ])
   },
@@ -100000,7 +99919,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Add Income")])
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Add Resume")])
     ])
   }
 ]

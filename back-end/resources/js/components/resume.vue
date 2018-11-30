@@ -10,28 +10,26 @@
             <div class="col-12" v-if="manageBook=='show'">
                     <div class="card">
                       <div class="card-header">
-                        <h3 class="card-title" style="display: inline-block;">Income Table</h3>
-                        <a class="btn btn-info" href="#" @click="addBook" style="float: right;">Add Income</a>
+                        <h3 class="card-title" style="display: inline-block;">Resume Table</h3>
+                        <a class="btn btn-info" href="#" @click="addBook" style="float: right;">Add Resume</a>
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body">
                         <table id="example2" class="table table-bordered table-hover">
                           <thead>
                           <tr>
-                            <th>User</th>
-                            <th>Sum</th>
-                            <th>Time</th>
-                            <th>Tag</th>
-                            <th>Details</th>
+                            <th>name</th>
+                            <th>Department</th>
+                            <th>Score</th>
+                            <th>Created Time</th>
                           </tr>
                           </thead>
                           <tbody>
                             <tr v-for="(item,index) in bookInformation">
-                              <td>{{item.user_id}}</td>
-                              <td>{{item.price}}</td>
+                              <td>{{item.name}}</td>
+                              <td>{{item.department}}</td>
+                              <td>{{item.score}}</td>
                               <td>{{item.created_at}}</td>
-                              <td>{{item.tags}}</td>
-                              <td>{{item.details}}</td>
                             </tr>
                           </tbody>
                         </table>
@@ -45,30 +43,22 @@
                 <!-- general form elements -->
                   <div class="card card-primary">
                     <div class="card-header">
-                      <h3 class="card-title">Add Income</h3>
+                      <h3 class="card-title">Add Resume</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
                       <div class="card-body">
                         <div class="form-group">
-                          <label for="exampleInputEmail1">User</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter User" v-model="user_id">
+                          <label for="exampleInputEmail1">Name</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" v-model="name">
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Price</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter price" v-model="price">
+                          <label for="exampleInputEmail1">Department</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter department" v-model="department">
                         </div>
                         <div class="form-group">
-                          <label for="exampleInputEmail1">Created At</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter created_at" v-model="created_at">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Details</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter details" v-model="details">
-                        </div>
-                        <div class="form-group">
-                          <label for="exampleInputEmail1">Tags</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter Tags" v-model="tags">
+                          <label for="exampleInputEmail1">score</label>
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter score" v-model="score">
                         </div>
                         <div class="form-group">
                           <button type="submit" class="btn btn-primary" @click="submit">Submit</button>
@@ -110,13 +100,9 @@ export default {
             //
             id:"",
             user_id:"",
-            details:"",
-            price:"",
-            created_at:"",
-            updated_at:"",
-            tags:""
-
-
+            department:"",
+            name:"",
+            score:"",
 
         }
     },
@@ -140,8 +126,12 @@ export default {
     methods:{
       showBook(){
         let $this = this;
+        this.id = "";
+        this.user_id = "";
+        this.department = "";
+        this.score = "";
         this.reload = false;
-        axios.get('http://jwt.test/api/showincome?token='+this.token)
+        axios.get('http://jwt.test/api/showresume?token='+this.token)
           .then(function (response) {
             console.log(response);
             if(response.data){
@@ -169,15 +159,14 @@ export default {
       },
       cancel(){
         this.manageBook = 'show';
+        this.showBook();
       },
       submit(){
         let $this = this;
-        axios.post('http://jwt.test/api/addincome',{
-              "id":$this.user_id,
-              "details": $this.details,
-              "price": $this.price,
-              "created_at": $this.created_at,
-              "tags": $this.tags,
+        axios.post('http://jwt.test/api/addresume',{
+              "name":$this.name,
+              "department": $this.department,
+              "score": $this.score,
               "token": $this.token
           })
           .then(function (response) {
