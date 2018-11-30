@@ -11,7 +11,7 @@
                     <div class="card">
                       <div class="card-header">
                         <h3 class="card-title" style="display: inline-block;">Employee Information</h3>
-                        <!-- <a class="btn btn-info" href="#" @click="addBook" style="float: right;">Add Employee</a> -->
+                        <a class="btn btn-info" href="#" @click="addBook" style="float: right;">Add Employee</a>
                       </div>
                       <!-- /.card-header -->
                       <div class="card-body">
@@ -53,6 +53,10 @@
                         <div class="form-group">
                           <label for="exampleInputEmail1">Email</label>
                           <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" v-model="email">
+                        </div>
+                        <div class="form-group">
+                          <label for="exampleInputEmail1">Password</label>
+                          <input type="password" class="form-control" id="exampleInputEmail1" placeholder="Enter password" v-model="password">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Role</label>
@@ -99,9 +103,7 @@ export default {
             id:"",
             name:"",
             email:"",
-            email_verified_at:"",
-            created_at:"",
-            updated_at:"",
+            password:"",
             role:""
 
 
@@ -160,12 +162,11 @@ export default {
       },
       submit(){
         let $this = this;
-        axios.post('http://jwt.test/api/addincome',{
-              "id":$this.user_id,
-              "details": $this.details,
-              "price": $this.price,
-              "created_at": $this.created_at,
-              "tags": $this.tags,
+        axios.post('http://jwt.test/api/addemployee',{
+              "name":$this.name,
+              "email": $this.email,
+              "password": $this.password,
+              "role":$this.role,
               "token": $this.token
           })
           .then(function (response) {
