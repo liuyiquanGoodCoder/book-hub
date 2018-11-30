@@ -89911,7 +89911,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     $this.$emit('url', 'expenditure');
                     break;
                 case 8:
-                    $this.$emit('url', 'sellerbusiness');
+                    $this.$emit('url', 'allbusiness');
                     break;
                 case 9:
                     $this.$emit('url', 'payroll');
@@ -98728,9 +98728,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -98825,21 +98822,15 @@ var render = function() {
                                 index
                               ) {
                                 return _c("tr", [
-                                  _c("td", [_vm._v(_vm._s(item.user_id))]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.address_id))]),
+                                  _c("td", [_vm._v(_vm._s(item.sname))]),
                                   _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(item.bname))]),
                                   _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(item.quantity))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.created_at))]),
-                                  _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(item.price))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.seller_id))]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.sname))])
+                                  _c("td", [_vm._v(_vm._s(item.created_at))])
                                 ])
                               })
                             )
@@ -98874,21 +98865,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("User")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Address")]),
+        _c("th", [_vm._v("Store Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Book Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Quantity")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Created Time")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Price")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Seller Id")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Seller Name")])
+        _c("th", [_vm._v("Created Time")])
       ])
     ])
   }
