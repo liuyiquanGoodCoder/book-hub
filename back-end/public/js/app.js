@@ -89911,7 +89911,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     $this.$emit('url', 'expenditure');
                     break;
                 case 8:
-                    $this.$emit('url', 'sellerbusiness');
+                    $this.$emit('url', 'allbusiness');
                     break;
                 case 9:
                     $this.$emit('url', 'payroll');
@@ -98728,9 +98728,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -98825,21 +98822,15 @@ var render = function() {
                                 index
                               ) {
                                 return _c("tr", [
-                                  _c("td", [_vm._v(_vm._s(item.user_id))]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.address_id))]),
+                                  _c("td", [_vm._v(_vm._s(item.sname))]),
                                   _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(item.bname))]),
                                   _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(item.quantity))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.created_at))]),
-                                  _vm._v(" "),
                                   _c("td", [_vm._v(_vm._s(item.price))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.seller_id))]),
-                                  _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.sname))])
+                                  _c("td", [_vm._v(_vm._s(item.created_at))])
                                 ])
                               })
                             )
@@ -98874,21 +98865,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("User")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Address")]),
+        _c("th", [_vm._v("Store Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Book Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("Quantity")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Created Time")]),
-        _vm._v(" "),
         _c("th", [_vm._v("Price")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Seller Id")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Seller Name")])
+        _c("th", [_vm._v("Created Time")])
       ])
     ])
   }
@@ -99087,6 +99072,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -99100,9 +99089,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       id: "",
       name: "",
       email: "",
-      email_verified_at: "",
-      created_at: "",
-      updated_at: "",
+      password: "",
       role: ""
 
     };
@@ -99156,12 +99143,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     submit: function submit() {
       var $this = this;
-      axios.post('http://jwt.test/api/addincome', {
-        "id": $this.user_id,
-        "details": $this.details,
-        "price": $this.price,
-        "created_at": $this.created_at,
-        "tags": $this.tags,
+      axios.post('http://jwt.test/api/addemployee', {
+        "name": $this.name,
+        "email": $this.email,
+        "password": $this.password,
+        "role": $this.role,
         "token": $this.token
       }).then(function (response) {
         if (response.data.success == true) {
@@ -99192,7 +99178,27 @@ var render = function() {
               _vm.manageBook == "show"
                 ? _c("div", { staticClass: "col-12" }, [
                     _c("div", { staticClass: "card" }, [
-                      _vm._m(0),
+                      _c("div", { staticClass: "card-header" }, [
+                        _c(
+                          "h3",
+                          {
+                            staticClass: "card-title",
+                            staticStyle: { display: "inline-block" }
+                          },
+                          [_vm._v("Employee Information")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-info",
+                            staticStyle: { float: "right" },
+                            attrs: { href: "#" },
+                            on: { click: _vm.addBook }
+                          },
+                          [_vm._v("Add Employee")]
+                        )
+                      ]),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
                         _c(
@@ -99202,7 +99208,7 @@ var render = function() {
                             attrs: { id: "example2" }
                           },
                           [
-                            _vm._m(1),
+                            _vm._m(0),
                             _vm._v(" "),
                             _c(
                               "tbody",
@@ -99229,7 +99235,7 @@ var render = function() {
               _vm.manageBook == "create"
                 ? _c("div", { staticClass: "col-12" }, [
                     _c("div", { staticClass: "card card-primary" }, [
-                      _vm._m(2),
+                      _vm._m(1),
                       _vm._v(" "),
                       _c("div", { staticClass: "card-body" }, [
                         _c("div", { staticClass: "form-group" }, [
@@ -99295,6 +99301,40 @@ var render = function() {
                                   return
                                 }
                                 _vm.email = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Password")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.password,
+                                expression: "password"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "password",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter password"
+                            },
+                            domProps: { value: _vm.password },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.password = $event.target.value
                               }
                             }
                           })
@@ -99371,18 +99411,6 @@ var render = function() {
     : _vm._e()
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "card-header" }, [
-      _c(
-        "h3",
-        { staticClass: "card-title", staticStyle: { display: "inline-block" } },
-        [_vm._v("Employee Information")]
-      )
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -99612,6 +99640,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -99622,14 +99658,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       manageBook: "show",
       reload: true,
       //
-      id: "",
-      user_id: "",
+      name: "",
+      quantity: "",
       details: "",
-      price: "",
-      created_at: "",
-      updated_at: "",
-      tags: ""
-
+      budget: "",
+      startdate: "",
+      enddate: ""
     };
   },
   mounted: function mounted() {
@@ -99652,10 +99686,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     showBook: function showBook() {
       var $this = this;
       this.reload = false;
-      axios.get('http://jwt.test/api/showincome?token=' + this.token).then(function (response) {
+      axios.get('http://jwt.test/api/showtraining?token=' + this.token).then(function (response) {
         console.log(response);
         if (response.data) {
-          $this.bookInformation = response.data;
+          $this.bookInformation = response.data.message;
           //console.log($this.bookInformation);
           $this.reload = true;
           $(function () {
@@ -99681,12 +99715,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     submit: function submit() {
       var $this = this;
-      axios.post('http://jwt.test/api/addincome', {
-        "id": $this.user_id,
+      axios.post('http://jwt.test/api/addtraining', {
+        "name": $this.name,
+        "quantity": $this.quantity,
         "details": $this.details,
-        "price": $this.price,
-        "created_at": $this.created_at,
-        "tags": $this.tags,
+        "budget": $this.budget,
+        "startdate": $this.startdate,
+        "enddate": $this.enddate,
         "token": $this.token
       }).then(function (response) {
         if (response.data.success == true) {
@@ -99724,7 +99759,11 @@ var render = function() {
                             staticClass: "card-title",
                             staticStyle: { display: "inline-block" }
                           },
-                          [_vm._v("Income Table")]
+                          [
+                            _vm._v(
+                              "Training\n                        Table\n                      "
+                            )
+                          ]
                         ),
                         _vm._v(" "),
                         _c(
@@ -99735,7 +99774,7 @@ var render = function() {
                             attrs: { href: "#" },
                             on: { click: _vm.addBook }
                           },
-                          [_vm._v("Add Income")]
+                          [_vm._v("Add Training")]
                         )
                       ]),
                       _vm._v(" "),
@@ -99756,15 +99795,17 @@ var render = function() {
                                 index
                               ) {
                                 return _c("tr", [
-                                  _c("td", [_vm._v(_vm._s(item.user_id))]),
+                                  _c("td", [_vm._v(_vm._s(item.name))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.price))]),
+                                  _c("td", [_vm._v(_vm._s(item.quantity))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.created_at))]),
+                                  _c("td", [_vm._v(_vm._s(item.details))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.tags))]),
+                                  _c("td", [_vm._v(_vm._s(item.budget))]),
                                   _vm._v(" "),
-                                  _c("td", [_vm._v(_vm._s(item.details))])
+                                  _c("td", [_vm._v(_vm._s(item.startdate))]),
+                                  _vm._v(" "),
+                                  _c("td", [_vm._v(_vm._s(item.enddate))])
                                 ])
                               })
                             )
@@ -99785,7 +99826,7 @@ var render = function() {
                           _c(
                             "label",
                             { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("User")]
+                            [_vm._v("Name")]
                           ),
                           _vm._v(" "),
                           _c("input", {
@@ -99793,23 +99834,23 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.user_id,
-                                expression: "user_id"
+                                value: _vm.name,
+                                expression: "name"
                               }
                             ],
                             staticClass: "form-control",
                             attrs: {
                               type: "text",
                               id: "exampleInputEmail1",
-                              placeholder: "Enter User"
+                              placeholder: "Enter Name"
                             },
-                            domProps: { value: _vm.user_id },
+                            domProps: { value: _vm.name },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.user_id = $event.target.value
+                                _vm.name = $event.target.value
                               }
                             }
                           })
@@ -99819,7 +99860,7 @@ var render = function() {
                           _c(
                             "label",
                             { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Price")]
+                            [_vm._v("Quantity")]
                           ),
                           _vm._v(" "),
                           _c("input", {
@@ -99827,8 +99868,8 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.price,
-                                expression: "price"
+                                value: _vm.quantity,
+                                expression: "quantity"
                               }
                             ],
                             staticClass: "form-control",
@@ -99837,47 +99878,13 @@ var render = function() {
                               id: "exampleInputEmail1",
                               placeholder: "Enter price"
                             },
-                            domProps: { value: _vm.price },
+                            domProps: { value: _vm.quantity },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.price = $event.target.value
-                              }
-                            }
-                          })
-                        ]),
-                        _vm._v(" "),
-                        _c("div", { staticClass: "form-group" }, [
-                          _c(
-                            "label",
-                            { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Created At")]
-                          ),
-                          _vm._v(" "),
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.created_at,
-                                expression: "created_at"
-                              }
-                            ],
-                            staticClass: "form-control",
-                            attrs: {
-                              type: "text",
-                              id: "exampleInputEmail1",
-                              placeholder: "Enter created_at"
-                            },
-                            domProps: { value: _vm.created_at },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.created_at = $event.target.value
+                                _vm.quantity = $event.target.value
                               }
                             }
                           })
@@ -99903,7 +99910,7 @@ var render = function() {
                             attrs: {
                               type: "text",
                               id: "exampleInputEmail1",
-                              placeholder: "Enter details"
+                              placeholder: "Enter Details"
                             },
                             domProps: { value: _vm.details },
                             on: {
@@ -99921,7 +99928,7 @@ var render = function() {
                           _c(
                             "label",
                             { attrs: { for: "exampleInputEmail1" } },
-                            [_vm._v("Tags")]
+                            [_vm._v("Budget")]
                           ),
                           _vm._v(" "),
                           _c("input", {
@@ -99929,8 +99936,42 @@ var render = function() {
                               {
                                 name: "model",
                                 rawName: "v-model",
-                                value: _vm.tags,
-                                expression: "tags"
+                                value: _vm.budget,
+                                expression: "budget"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter budget"
+                            },
+                            domProps: { value: _vm.budget },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.budget = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("Start Date")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.startdate,
+                                expression: "startdate"
                               }
                             ],
                             staticClass: "form-control",
@@ -99939,13 +99980,47 @@ var render = function() {
                               id: "exampleInputEmail1",
                               placeholder: "Enter Tags"
                             },
-                            domProps: { value: _vm.tags },
+                            domProps: { value: _vm.startdate },
                             on: {
                               input: function($event) {
                                 if ($event.target.composing) {
                                   return
                                 }
-                                _vm.tags = $event.target.value
+                                _vm.startdate = $event.target.value
+                              }
+                            }
+                          })
+                        ]),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "form-group" }, [
+                          _c(
+                            "label",
+                            { attrs: { for: "exampleInputEmail1" } },
+                            [_vm._v("End Date")]
+                          ),
+                          _vm._v(" "),
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.enddate,
+                                expression: "enddate"
+                              }
+                            ],
+                            staticClass: "form-control",
+                            attrs: {
+                              type: "text",
+                              id: "exampleInputEmail1",
+                              placeholder: "Enter Tags"
+                            },
+                            domProps: { value: _vm.enddate },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.enddate = $event.target.value
                               }
                             }
                           })
@@ -99994,15 +100069,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("User")]),
+        _c("th", [_vm._v("Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Sum")]),
+        _c("th", [_vm._v("Quantity")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Time")]),
+        _c("th", [_vm._v("Details")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Tag")]),
+        _c("th", [_vm._v("Budget")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Details")])
+        _c("th", [_vm._v("Startdate")]),
+        _vm._v(" "),
+        _c("th", [_vm._v("Enddate")])
       ])
     ])
   },
@@ -100011,7 +100088,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h3", { staticClass: "card-title" }, [_vm._v("Add Income")])
+      _c("h3", { staticClass: "card-title" }, [_vm._v("Add Training")])
     ])
   }
 ]

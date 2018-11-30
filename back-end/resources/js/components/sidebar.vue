@@ -372,7 +372,7 @@ export default {
                   $this.$emit('url','expenditure');
                   break;
               case 8: 
-                  $this.$emit('url','sellerbusiness');
+                  $this.$emit('url','allbusiness');
                   break;
               case 9: 
                   $this.$emit('url','payroll');

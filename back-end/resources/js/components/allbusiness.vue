@@ -17,26 +17,23 @@
                         <table id="example2" class="table table-bordered table-hover">
                           <thead>
                           <tr>
-                            <th>User</th>
-                            <th>Address</th>
+                            <th>Store Name</th>
                             <th>Book Name</th>
                             <th>Quantity</th>
-                            <th>Created Time</th>
                             <th>Price</th>
-                            <th>Seller Id</th>
-                            <th>Seller Name</th>
+                            <th>Created Time</th>
+                            
                           </tr>
                           </thead>
                           <tbody>
                             <tr v-for="(item,index) in bookInformation">
-                              <td>{{item.user_id}}</td>
-                               <td>{{item.address_id}}</td>
+                              <td>{{item.sname}}</td>
                               <td>{{item.bname}}</td>
                               <td>{{item.quantity}}</td>
-                              <td>{{item.created_at}}</td>
                               <td>{{item.price}}</td>
-                              <td>{{item.seller_id}}</td>
-                              <td>{{item.sname}}</td>
+
+                              <td>{{item.created_at}}</td>
+                              
                             </tr>
                           </tbody>
                         </table>
