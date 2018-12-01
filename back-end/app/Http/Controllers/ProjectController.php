@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use App\Projectrecord;
+use App\Storeinfo;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Carbon\Carbon;
@@ -84,6 +85,27 @@ class ProjectController extends Controller
 	            'message' => 'projects could not be deleted'
 	        ]);
 	    }
+	}
+	public function showstores(Request $request)
+	{
+		$users = Storeinfo::leftJoin('projectrecords', 'storeinfos.user_id', '=', 'projectrecords.from_seller_id')
+				->where('project_id', '<>', $request->id)
+                ->orWhere('project_id', null)
+				->select('storeinfos.*')
+				->get();
+		
+		if ($users) {
+	        return response()->json([
+				'success' => true,
+				'message' => $users
+	        ]);
+	    } else {
+	        return response()->json([
+	            'success' => true,
+	            'message' => 0
+	        ]);
+		}
+			
 	}
 	public function addrecord(Request $request)
 	{
