@@ -47,7 +47,9 @@ class CartsController extends Controller
 		$uid = $this->user->id;
 
 		return Carts::join('books', 'carts.bid', '=', 'books.id')
-			->where('carts.user_id', '=', $uid)->get()->toArray();
+			->where('carts.user_id', '=', $uid)
+			->select('carts.*', 'books.bname', 'books.price')
+	        ->get()->toArray();
 
 	}
 
@@ -69,6 +71,7 @@ class CartsController extends Controller
 			$orders->price = $item["price"];
 			$orders->address_id = $item["address_id"];
 			$this->user->orders()->save($orders);
+			Carts::where('id', '=', $item["id"])->delete();
 		}
 
 		return response()->json([
