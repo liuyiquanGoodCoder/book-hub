@@ -11,7 +11,8 @@ class BooksController extends Controller
     public function home()
     {
 
-    	return Books::paginate(15)
+		return Books::orderBy('created_at', 'desc')
+			->paginate(15)
     		->toArray();
     }
 
