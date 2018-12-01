@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Projectrecord;
+use App\Income;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Carbon\Carbon;
@@ -34,9 +35,17 @@ class ServiceController extends Controller
 	        ]);
 	    }
 
-	    $updated = $service->update(['status' => 1]);
+		$updated = $service->update(['status' => 1]);
+		
+		$incomes = new Income();
+		$incomes->user_id = $service->user_id;
+		$incomes->tags = "marketing service income";
+		$incomes->details = $service->details;
+        $incomes->price = $service->price;
+
+		$incomes->save();
         
-	    if ($updated) {
+	    if ($updated&&$incomes) {
 	        return response()->json([
 	            'success' => true
 	        ]);

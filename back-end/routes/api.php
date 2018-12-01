@@ -83,6 +83,7 @@ Route::middleware('auth.jwt', 'cors:api')->group (function() {
 
 	//a/f: payroll management
 	Route::get('showpayroll', 'AccountingController@showpayroll');
+	Route::get('paywages', 'AccountingController@paywages');
 
 	//a/f: expenditure management
 	Route::post('addexpenditure', 'AccountingController@addexpenditure');

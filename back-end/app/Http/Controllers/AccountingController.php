@@ -73,6 +73,25 @@ class AccountingController extends Controller
     public function showincome(Request $request)
     {
         return Income::get()->toArray();
-    }
+	}
+	
+	public function paywages(Request $request)
+	{
+		$expenditures = new Expenditure();
+		$expenditures->tags = "wages";
+		$expenditures->details = "monthly wages";
+        $expenditures->price = "29460";
+
+		if ($this->user->expenditures()->save($expenditures))
+	        return response()->json([
+	            'success' => true,
+	            'message' => 1
+	        ]);
+	    else
+	        return response()->json([
+	            'success' => true,
+	            'message' => 0
+	        ]);
+	}
 
 }

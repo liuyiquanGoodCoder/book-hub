@@ -112,8 +112,9 @@ class ProjectController extends Controller
 		$records = new Projectrecord();
 		$records->from_seller_id = $request->from_seller_id;
 		$records->project_id = $request->project_id;
-		$records->details = $request->details;
-        $records->price = $request->price;
+		$project = Project::find($request->project_id);
+		$records->details = $project->details;
+        $records->price = $project->price;
 
 		if ($this->user->projectrecords()->save($records))
 	        return response()->json([
