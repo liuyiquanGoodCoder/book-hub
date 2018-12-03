@@ -92655,6 +92655,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     cancel: function cancel() {
       this.manageBook = 'show';
+      this.showBook();
     },
     submit: function submit() {
       var $this = this;
@@ -93518,7 +93519,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", [_vm._v("Book Name")]),
+        _c("th", { staticClass: "sorting_asc" }, [_vm._v("Book Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("ISBN")]),
         _vm._v(" "),

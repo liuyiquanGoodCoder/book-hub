@@ -21,7 +21,7 @@
                             <th>Book Name</th>
                             <th>ISBN</th>
                             <th>Author</th>
-                            <th>Publish Year</th>
+                            <th>Year</th>
                             <th>Publisher</th>
                             <th>Price($)</th>
                             <th>Quantity</th>
@@ -287,6 +287,7 @@ export default {
       },
       cancel(){
         this.manageBook = 'show';
+        this.showBook();
       },
       submit(){
         let $this = this;
