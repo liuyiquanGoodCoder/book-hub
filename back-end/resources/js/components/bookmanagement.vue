@@ -83,15 +83,15 @@
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">image url small</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter phone">
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter url">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">image url middle</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter phone">
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter url">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">image url large</label>
-                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter phone">
+                          <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter url">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputEmail1">Quantity</label>

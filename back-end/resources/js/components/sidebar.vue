@@ -172,14 +172,14 @@
                   </p>
                 </a>
               </li>
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                 <a href="#" class="nav-link" @click="showContent(4)">
                   <i class="nav-icon fa fa-th"></i>
                   <p>
                     New Orders
                   </p>
                 </a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a href="#" class="nav-link" @click="showContent(5)">
                   <i class="nav-icon fa fa-th"></i>

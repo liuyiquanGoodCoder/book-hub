@@ -90072,30 +90072,6 @@ var render = function() {
                               attrs: { href: "#" },
                               on: {
                                 click: function($event) {
-                                  _vm.showContent(4)
-                                }
-                              }
-                            },
-                            [
-                              _c("i", { staticClass: "nav-icon fa fa-th" }),
-                              _vm._v(" "),
-                              _c("p", [
-                                _vm._v(
-                                  "\n                  New Orders\n                "
-                                )
-                              ])
-                            ]
-                          )
-                        ]),
-                        _vm._v(" "),
-                        _c("li", { staticClass: "nav-item" }, [
-                          _c(
-                            "a",
-                            {
-                              staticClass: "nav-link",
-                              attrs: { href: "#" },
-                              on: {
-                                click: function($event) {
                                   _vm.showContent(5)
                                 }
                               }
@@ -93519,13 +93495,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c("th", { staticClass: "sorting_asc" }, [_vm._v("Book Name")]),
+        _c("th", [_vm._v("Book Name")]),
         _vm._v(" "),
         _c("th", [_vm._v("ISBN")]),
         _vm._v(" "),
         _c("th", [_vm._v("Author")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Publish Year")]),
+        _c("th", [_vm._v("Year")]),
         _vm._v(" "),
         _c("th", [_vm._v("Publisher")]),
         _vm._v(" "),
@@ -93559,7 +93535,7 @@ var staticRenderFns = [
         attrs: {
           type: "text",
           id: "exampleInputEmail1",
-          placeholder: "Enter phone"
+          placeholder: "Enter url"
         }
       })
     ])
@@ -93578,7 +93554,7 @@ var staticRenderFns = [
         attrs: {
           type: "text",
           id: "exampleInputEmail1",
-          placeholder: "Enter phone"
+          placeholder: "Enter url"
         }
       })
     ])
@@ -93597,7 +93573,7 @@ var staticRenderFns = [
         attrs: {
           type: "text",
           id: "exampleInputEmail1",
-          placeholder: "Enter phone"
+          placeholder: "Enter url"
         }
       })
     ])

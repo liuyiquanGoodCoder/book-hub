@@ -40,14 +40,14 @@
 		export default{
 		data(){
 			return {
-				page:1,
+				page:3,
 				bookList:{},
 				url:"http://jwt.test/api/home/"			
 			}
 		},
 		mounted(){
 			const $this = this;
-			axios.get($this.url).then(function (response) {
+			axios.get($this.url+'?page='+this.page).then(function (response) {
 				    if(response.status == 200){
 				    	$this.bookList = response.data.data;
 				    }

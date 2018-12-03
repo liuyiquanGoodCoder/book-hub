@@ -36,11 +36,16 @@
 		},
 		 mounted() {
 		 	//let cookie  = this.cookie.split(";");
-		 	
-		 		
-		 		let userInfo = this.cookie.split("|");
-		 	    this.name = userInfo[0];
-		 	    this.token = userInfo[1];
+				let userInfo = document.cookie.split(";");
+		        let userFunction = {};
+		        if(userInfo[0].split("|")[2]){
+		           userFunction = userInfo[0].split("|");
+		          
+		        }else{
+		          userFunction = userInfo[1].split("|");
+		        }
+		 	    this.name = userFunction[0];
+		 	    this.token = userFunction[1];
 			   if(this.token == undefined){
 						this.userName = false;
 						this.login = true;
