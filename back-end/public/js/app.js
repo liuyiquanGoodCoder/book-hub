@@ -90715,14 +90715,11 @@ var staticRenderFns = [
             _c(
               "a",
               {
-                staticClass: "nav-link",
-                attrs: {
-                  "data-widget": "control-sidebar",
-                  "data-slide": "true",
-                  href: "#"
-                }
+                staticClass: "btn btn-default btn-flat",
+                staticStyle: { "font-size": "12px" },
+                attrs: { href: "/" }
               },
-              [_c("i", { staticClass: "fa fa-th-large" })]
+              [_vm._v("Sign Out\n      ")]
             )
           ])
         ])
